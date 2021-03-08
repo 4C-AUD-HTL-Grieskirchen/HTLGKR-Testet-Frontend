@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "htlgkr-testet": {
+      "hosting": {
+        "HTLGKR-Testet-Frontend": [
+          "htlgkr-testet"
+        ]
+      }
+    }
+  }
+}
