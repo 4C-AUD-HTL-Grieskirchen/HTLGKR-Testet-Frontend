@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
+import {AccordionModule} from 'primeng/accordion';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import {environment} from '../environments/environment';
         BrowserAnimationsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
+        AccordionModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
