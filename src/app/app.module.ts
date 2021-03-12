@@ -10,6 +10,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AccordionModule} from 'primeng/accordion';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import {AccordionModule} from 'primeng/accordion';
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
         AccordionModule,
+        NgbModule
     ],
     providers: [],
     bootstrap: [AppComponent]
