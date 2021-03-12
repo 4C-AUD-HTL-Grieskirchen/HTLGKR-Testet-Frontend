@@ -1,0 +1,13 @@
+
+.state-info {
+    font-size: 10px;
+}
+
+.text-primary {
+    color: #b81a1f!important;
+    font-weight: 700!important;
+}
+
+.border-bottom {
+    border-bottom: 4px solid #b81a1f!important;
+}
