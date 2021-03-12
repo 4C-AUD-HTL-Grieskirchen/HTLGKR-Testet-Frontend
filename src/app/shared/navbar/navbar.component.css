@@ -6,7 +6,9 @@
 .text-primary {
     color: #b81a1f!important;
     font-weight: 700!important;
+    line-height: 1.4rem;
 }
+
 
 .border-bottom {
     border-bottom: 4px solid #b81a1f!important;
