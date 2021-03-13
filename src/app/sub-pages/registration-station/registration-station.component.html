@@ -1,7 +1,7 @@
 <h2>Teststation auswählen</h2>
 <p>Bitte wählen Sie eine der verfügbaren Teststationen aus</p>
 <label for="ddDistricts">Bezirk:</label>
-<p-dropdown id="ddDistricts" [options]="districts" [(ngModel)]="selectedDistrict" optionLabel="name"></p-dropdown>
+<p-dropdown id="ddDistricts" [options]="districts" [(ngModel)]="selectedDistrict" optionLabel="name" (selectionchange)="anySelectionChanged()"></p-dropdown>
 <p-listbox [options]="testingFacilities" [(ngModel)]="selectedFacility" optionLabel="name"></p-listbox>
 <h3>Gewählte Teststation</h3>
 <div *ngIf="selectedFacility">
