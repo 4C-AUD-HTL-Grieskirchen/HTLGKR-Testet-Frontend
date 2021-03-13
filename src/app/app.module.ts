@@ -19,12 +19,16 @@ import {DropdownModule} from 'primeng/dropdown';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {InputTextModule} from "primeng/inputtext";
+import { FooterComponent } from './shared/footer/footer.component';
+import { ImpressumComponent } from './pages/impressum/impressum.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
-        NavbarComponent
+        NavbarComponent,
+        FooterComponent,
+        ImpressumComponent
     ],
     imports: [
         BrowserModule,

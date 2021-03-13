@@ -1,0 +1,19 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.border-top {
+    border-top: 1px solid #f44336 !important;
+}
+
+a {
+    color: #f44336;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: black;
+}
