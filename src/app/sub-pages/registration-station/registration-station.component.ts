@@ -3,6 +3,7 @@ import {District} from '../../models/District';
 import {TestingFacility} from '../../models/TestingFacility';
 import {StepsCommunicationService} from '../../services/steps-communication.service';
 import {Router} from '@angular/router';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class RegistrationStationComponent implements OnInit {
     selectedFacility: TestingFacility | undefined;
     // maybe search for nearest district and/or facility
 
-  constructor(private communication: StepsCommunicationService, private router: Router) { }
+  constructor(private store: AngularFirestore, private communication: StepsCommunicationService, private router: Router) { }
 
   ngOnInit(): void {
   }

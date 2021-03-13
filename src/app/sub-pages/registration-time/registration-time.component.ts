@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TestingFacility} from '../../models/TestingFacility';
 import {StepsCommunicationService} from '../../services/steps-communication.service';
 import {Router} from '@angular/router';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
     selector: 'app-registration-time',
@@ -16,7 +17,7 @@ export class RegistrationTimeComponent implements OnInit {
     availableTimes: string[];
     selectedTime: string;
 
-    constructor(private communication: StepsCommunicationService, private router: Router) {
+    constructor(private store: AngularFirestore, private communication: StepsCommunicationService, private router: Router) {
         this.selectedFacility = (communication.selectedFacility as TestingFacility);
         this.availableDates = []; // ToDo: changed to await with db get
         this.selectedDate = this.availableDates[0];

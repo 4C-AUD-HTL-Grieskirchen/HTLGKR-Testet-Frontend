@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {StepsCommunicationService} from '../../services/steps-communication.service';
 import {Router} from '@angular/router';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-registration-start',
@@ -9,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class RegistrationStartComponent implements OnInit {
 
-  constructor(private communication: StepsCommunicationService, private router: Router) {
+  constructor(private store: AngularFirestore, private communication: StepsCommunicationService, private router: Router) {
   }
 
   ngOnInit(): void {
