@@ -10,6 +10,7 @@ export class StepsCommunicationService {
     public userBirthday: Date | undefined;
     public userDistrict: District | undefined;
     public selectedFacility: TestingFacility | undefined;
+    public selectedDate: Date | undefined;
 
   constructor() { }
 }

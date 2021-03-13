@@ -23,7 +23,7 @@ export class RegistrationStationComponent implements OnInit {
   }
 
     anySelectionChanged(): void {
-        this.communication.selectedFacility = this.selectedFacility;
-        this.communication.userDistrict = this.selectedDistrict;
+        if ( this.selectedFacility) { this.communication.selectedFacility = this.selectedFacility; }
+        if (this.selectedDistrict) { this.communication.userDistrict = this.selectedDistrict; }
     }
 }

@@ -1,1 +1,9 @@
-<p>registration-time works!</p>
+<h2>Buchen Sie Ihren Testtermin</h2>
+<p>{{selectedFacility.name}}</p>
+<p>{{selectedFacility.postalCode}} {{selectedFacility.city}}</p>
+<p>{{selectedFacility.address}}</p>
+
+<p-dropdown [(ngModel)]="selectedDate" (selectionchange)="getTimesFromSelectedDate()">
+    <option *ngFor="let date of availableDates" [value]="date">{{getParsedDate(date)}}</option>
+</p-dropdown>
+<p-listbox [options]="availableTimes" [(ngModel)]="selectedTime" (selectionchange)="anySelectionChanged()"></p-listbox>
