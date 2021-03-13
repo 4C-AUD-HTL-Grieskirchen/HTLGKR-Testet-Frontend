@@ -1,19 +1,7 @@
 footer {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
+	border-top: 1px solid #b81a1f;
 }
 
-.border-top {
-    border-top: 1px solid #b81a1f !important;
-}
-
-a {
-    color: #f44336;
-    text-decoration: underline;
-}
-
-a:hover {
-    color: black;
+footer img {
+	height: 80px;
 }
