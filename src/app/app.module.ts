@@ -11,6 +11,14 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AccordionModule} from 'primeng/accordion';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {InputMaskModule} from 'primeng/inputmask';
+import {ButtonModule} from 'primeng/button';
+import {CheckboxModule} from 'primeng/checkbox';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {DropdownModule} from 'primeng/dropdown';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {InputTextModule} from "primeng/inputtext";
 
 @NgModule({
     declarations: [
@@ -21,11 +29,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     imports: [
         BrowserModule,
         AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
         BrowserAnimationsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
         AccordionModule,
-        NgbModule
+        NgbModule,
+        InputMaskModule,
+        ButtonModule,
+        CheckboxModule,
+        RadioButtonModule,
+        DropdownModule,
+        FontAwesomeModule,
+        InputTextModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
