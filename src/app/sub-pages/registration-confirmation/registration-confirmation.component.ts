@@ -13,9 +13,4 @@ export class RegistrationConfirmationComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
-    onClickBack(): void {
-        this.router.navigate(['registration/time']);
-    }
 }
