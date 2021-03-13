@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 import {StepsCommunicationService} from '../../services/steps-communication.service';
 
 @Component({
@@ -8,9 +9,13 @@ import {StepsCommunicationService} from '../../services/steps-communication.serv
 })
 export class RegistrationConfirmationComponent implements OnInit {
 
-  constructor(private communication: StepsCommunicationService) { }
+  constructor(private router: Router, private communication: StepsCommunicationService) { }
 
   ngOnInit(): void {
   }
 
+
+    onClickBack(): void {
+        this.router.navigate(['registration/time']);
+    }
 }

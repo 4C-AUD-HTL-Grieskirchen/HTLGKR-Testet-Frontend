@@ -3,3 +3,6 @@
 <p>Bitte geben Sie Ihr Geburtsdatum ein.</p>
 <label for="birthdayInput">Geburtsdatum</label>
 <input id="birthdayInput" type="date" (selectionchange)="setSelectedDate(birthday.value)" #birthday>
+<div class="form-row">
+<p-button label="Next" icon="pi pi-angle-right" iconPos="right" (click)="onClickNext()"></p-button>
+</div>

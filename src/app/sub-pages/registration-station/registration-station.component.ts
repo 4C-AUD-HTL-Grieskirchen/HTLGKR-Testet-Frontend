@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {District} from '../../models/District';
 import {TestingFacility} from '../../models/TestingFacility';
-import {StepsCommunicationService} from "../../services/steps-communication.service";
+import {StepsCommunicationService} from '../../services/steps-communication.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class RegistrationStationComponent implements OnInit {
     selectedFacility: TestingFacility | undefined;
     // maybe search for nearest district and/or facility
 
-  constructor(private communication: StepsCommunicationService) { }
+  constructor(private communication: StepsCommunicationService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,5 +26,12 @@ export class RegistrationStationComponent implements OnInit {
     anySelectionChanged(): void {
         if ( this.selectedFacility) { this.communication.selectedFacility = this.selectedFacility; }
         if (this.selectedDistrict) { this.communication.userDistrict = this.selectedDistrict; }
+    }
+
+    onClickNext(): void{
+        this.router.navigate(['registration/time']);
+    }
+    onClickBack(): void {
+        this.router.navigate(['registration/start']);
     }
 }

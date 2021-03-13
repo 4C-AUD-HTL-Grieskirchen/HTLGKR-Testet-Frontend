@@ -11,7 +11,6 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {StepsModule} from 'primeng/steps';
 import {RegistrationStepsComponent} from './pages/registration-steps/registration-steps.component';
-import {AccordionModule} from 'primeng/accordion';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationStartComponent } from './sub-pages/registration-start/registration-start.component';
 import { RegistrationStationComponent } from './sub-pages/registration-station/registration-station.component';
@@ -20,6 +19,7 @@ import { RegistrationConfirmationComponent } from './sub-pages/registration-conf
 import {DropdownModule} from 'primeng/dropdown';
 import {FormsModule} from '@angular/forms';
 import {ListboxModule} from 'primeng/listbox';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
     declarations: [
@@ -43,6 +43,8 @@ import {ListboxModule} from 'primeng/listbox';
         DropdownModule,
         FormsModule,
         ListboxModule,
+        ButtonModule,
+
     ],
     providers: [],
     bootstrap: [AppComponent]

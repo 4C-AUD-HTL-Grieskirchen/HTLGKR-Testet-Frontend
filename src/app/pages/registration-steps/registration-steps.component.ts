@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {Router} from '@angular/router';
+import {StepsModule} from 'primeng/steps';
 
 @Component({
     selector: 'app-registration-steps',
@@ -17,6 +18,7 @@ export class RegistrationStepsComponent implements OnInit {
             {
                 label: 'Step 1',
                 routerLink: 'start',
+                icon: 'pi pi-plus',
                 tabindex: '0'
             },
             {
@@ -38,9 +40,6 @@ export class RegistrationStepsComponent implements OnInit {
 
     }
 
-    clickButtonNext(): void {
-
-    }
 
     onActivate($event: any): void {
         console.log($event);
@@ -48,5 +47,6 @@ export class RegistrationStepsComponent implements OnInit {
 
     ngOnInit(): void {
     }
+
 
 }

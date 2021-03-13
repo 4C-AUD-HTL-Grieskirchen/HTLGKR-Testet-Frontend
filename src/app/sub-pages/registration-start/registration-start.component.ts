@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {StepsCommunicationService} from '../../services/steps-communication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration-start',
@@ -8,7 +9,7 @@ import {StepsCommunicationService} from '../../services/steps-communication.serv
 })
 export class RegistrationStartComponent implements OnInit {
 
-  constructor(private communication: StepsCommunicationService) {
+  constructor(private communication: StepsCommunicationService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -17,5 +18,7 @@ export class RegistrationStartComponent implements OnInit {
     setSelectedDate(sDate: string): void{
         this.communication.userBirthday = new Date(Date.parse(sDate));
     }
-
+    onClickNext(): void{
+        this.router.navigate(['registration/station']);
+    }
 }
