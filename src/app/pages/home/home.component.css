@@ -1,5 +1,12 @@
 
-.main-form {
-    margin: 3rem;
+h1 {
+    margin-top: 0.5rem;
+    line-height: 1.2em;
+    font-size: 28px;
+}
+
+.registration-start {
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 
