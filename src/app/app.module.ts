@@ -11,12 +11,20 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AccordionModule} from 'primeng/accordion';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegistrationStartComponent } from './sub-pages/registration-start/registration-start.component';
+import { RegistrationStationComponent } from './sub-pages/registration-station/registration-station.component';
+import { RegistrationTimeComponent } from './sub-pages/registration-time/registration-time.component';
+import { RegistrationConfirmationComponent } from './sub-pages/registration-confirmation/registration-confirmation.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
-        NavbarComponent
+        NavbarComponent,
+        RegistrationStartComponent,
+        RegistrationStationComponent,
+        RegistrationTimeComponent,
+        RegistrationConfirmationComponent
     ],
     imports: [
         BrowserModule,
