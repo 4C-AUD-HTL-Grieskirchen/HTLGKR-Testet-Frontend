@@ -15,7 +15,9 @@ import { RegistrationStartComponent } from './sub-pages/registration-start/regis
 import { RegistrationStationComponent } from './sub-pages/registration-station/registration-station.component';
 import { RegistrationTimeComponent } from './sub-pages/registration-time/registration-time.component';
 import { RegistrationConfirmationComponent } from './sub-pages/registration-confirmation/registration-confirmation.component';
-import {DropdownModule} from "primeng/dropdown";
+import {DropdownModule} from 'primeng/dropdown';
+import {FormsModule} from '@angular/forms';
+import {ListboxModule} from 'primeng/listbox';
 
 @NgModule({
     declarations: [
@@ -36,6 +38,8 @@ import {DropdownModule} from "primeng/dropdown";
         AccordionModule,
         NgbModule,
         DropdownModule,
+        FormsModule,
+        ListboxModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
