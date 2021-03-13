@@ -11,12 +11,16 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AccordionModule} from 'primeng/accordion';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './shared/footer/footer.component';
+import { ImpressumComponent } from './pages/impressum/impressum.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
-        NavbarComponent
+        NavbarComponent,
+        FooterComponent,
+        ImpressumComponent
     ],
     imports: [
         BrowserModule,
