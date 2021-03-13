@@ -15,6 +15,7 @@ import { RegistrationStartComponent } from './sub-pages/registration-start/regis
 import { RegistrationStationComponent } from './sub-pages/registration-station/registration-station.component';
 import { RegistrationTimeComponent } from './sub-pages/registration-time/registration-time.component';
 import { RegistrationConfirmationComponent } from './sub-pages/registration-confirmation/registration-confirmation.component';
+import {DropdownModule} from "primeng/dropdown";
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { RegistrationConfirmationComponent } from './sub-pages/registration-conf
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
         AccordionModule,
-        NgbModule
+        NgbModule,
+        DropdownModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

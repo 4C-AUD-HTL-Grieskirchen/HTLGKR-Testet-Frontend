@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {StepsCommunicationService} from '../../services/steps-communication.service';
 
 @Component({
   selector: 'app-registration-start',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationStartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private communication: StepsCommunicationService) {
+  }
 
   ngOnInit(): void {
   }
+
+    setSelectedDate(sDate: string): void{
+        this.communication.userBirthday = new Date(Date.parse(sDate));
+    }
 
 }
