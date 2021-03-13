@@ -5,10 +5,12 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './pages/home/home.component';
 import {NavbarComponent} from './shared/navbar/navbar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
+import {StepsModule} from 'primeng/steps';
+import {RegistrationStepsComponent} from './pages/registration-steps/registration-steps.component';
 import {AccordionModule} from 'primeng/accordion';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationStartComponent } from './sub-pages/registration-start/registration-start.component';
@@ -23,6 +25,7 @@ import {ListboxModule} from 'primeng/listbox';
     declarations: [
         AppComponent,
         HomeComponent,
+        RegistrationStepsComponent,
         NavbarComponent,
         RegistrationStartComponent,
         RegistrationStationComponent,
@@ -35,7 +38,7 @@ import {ListboxModule} from 'primeng/listbox';
         BrowserAnimationsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
-        AccordionModule,
+        StepsModule,
         NgbModule,
         DropdownModule,
         FormsModule,
