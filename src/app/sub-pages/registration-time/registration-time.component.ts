@@ -49,4 +49,6 @@ export class RegistrationTimeComponent implements OnInit {
       this.selectedDate.setUTCHours(+this.selectedTime.split(':')[0], +this.selectedTime.split(':')[1]);
       this.communication.selectedDate = this.selectedDate;
     }
+
+    // ToDo: next button should call pdf creation and return number of "Laufzettel"
 }

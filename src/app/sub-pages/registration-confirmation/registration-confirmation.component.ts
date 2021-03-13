@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {StepsCommunicationService} from '../../services/steps-communication.service';
 
 @Component({
   selector: 'app-registration-confirmation',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationConfirmationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private communication: StepsCommunicationService) { }
 
   ngOnInit(): void {
   }
