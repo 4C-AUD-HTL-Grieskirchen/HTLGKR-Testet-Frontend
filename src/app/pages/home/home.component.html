@@ -3,37 +3,30 @@
     <h1>Anmeldung zum COVID-19 Schnelltest in Oberösterreich</h1>
 
     <h5 class="p-mt-3">Bitte geben Sie hier Ihre Kontaktdaten ein:</h5>
-    <label class="disabled-floating">Mit <span class="required-field-description">*</span> gekennzeichneten Felder sind verpflichtend</label>
+    <label class="">Mit <span class="required-field-description">*</span> gekennzeichneten Felder sind
+        verpflichtend</label>
 
-    <div class="p-fluid p-formgrid p-grid">
+    <div class="p-fluid p-formgrid p-grid ">
         <div class="p-float-label p-col-12 p-md-6 p-mt-5">
-            <input id="PreName" type="text" class="p-inputtext p-component ng-untouched ng-pristine ng-invalid p-inputwrapper-filled" />
-            <label for="PreName" class="disabled-floating required-field">Vorname</label>
+            <input id="PreName" type="text" class="p-inputtext p-inputwrapper-filled" [(ngModel)]="data.firstname"/>
+            <label for="PreName" class=" required-field">Vorname</label>
         </div>
         <div class="p-float-label p-col-12 p-md-6 p-mt-5">
-            <input id="SurName" type="text" class="p-inputtext p-component ng-untouched ng-pristine ng-invalid p-inputwrapper-filled" />
-            <label for="SurName" class="disabled-floating required-field">Nachname</label>
+            <input id="SurName" type="text" class="p-inputtext p-inputwrapper-filled" [(ngModel)]="data.lastname"/>
+            <label for="SurName" class=" required-field">Nachname</label>
         </div>
         <div class="p-float-label p-col-12 p-md-6 p-mt-6">
-            <p-inputMask id="Geb" mask="99.99.9999" placeholder="TT.MM.JJJJ" class="ng-untouched ng-pristine ng-invalid p-inputwrapper-filled"></p-inputMask>
-            <label for="Geb" class="disabled-floating required-field">Geburtsdatum</label>
+            <p-inputMask id="Geb" mask="99.99.9999" placeholder="TT.MM.JJJJ" class="p-inputwrapper-filled" [(ngModel)]="data.gebDate"></p-inputMask>
+            <label for="Geb" class=" required-field">Geburtsdatum</label>
         </div>
 
         <div class="p-float-label p-col-12 p-md-6 p-mt-6">
-            <p-dropdown id="sex" class="ng-tns-c48-0 ng-untouched ng-pristine ng-invalid p-inputwrapper-filled">
-                <div class="ng-tns-c48-0 p-dropdown p-component">
-                    <div class="p-hidden-accessible ng-tns-c48-0"><input type="text" readonly="" aria-haspopup="listbox" role="listbox" class="ng-tns-c48-0" aria-label="" /></div>
-
-                    <span class="ng-tns-c48-0 p-dropdown-label p-inputtext p-dropdown-label-empty ng-star-inserted"> </span>
-
-                    <div role="button" aria-haspopup="listbox" class="p-dropdown-trigger ng-tns-c48-0"><span class="p-dropdown-trigger-icon ng-tns-c48-0 pi pi-chevron-down"></span></div>
-                </div>
-            </p-dropdown>
-            <label for="Sex" class="disabled-floating required-field">Geschlecht</label>
+            <p-dropdown id="sex" class="p-inputwrapper-filled" [(ngModel)]="data.gender"></p-dropdown>
+            <label for="Sex" class=" required-field">Geschlecht</label>
         </div>
         <div class="p-float-label p-col-12 p-md-6 p-mt-6">
-            <p-inputMask id="Svnr" type="text" mask="9999" placeholder="XXXX" class="ng-valid ng-touched ng-dirty p-inputwrapper-filled"></p-inputMask>
-            <label for="Svnr" class="disabled-floating">Sozialversicherungsnummer</label>
+            <p-inputMask id="Svnr" type="text" mask="9999" placeholder="XXXX" class="ng-valid ng-touched ng-dirty p-inputwrapper-filled" [(ngModel)]="data.social"></p-inputMask>
+            <label for="Svnr" class="">Sozialversicherungsnummer</label>
         </div>
 
         <div class="p-float-label p-col-12 p-md-6 p-mt-6">
@@ -41,114 +34,98 @@
         </div>
 
         <div class="p-float-label p-col-12 p-mt-6">
-            <input id="Street" type="text" class="p-inputtext p-component ng-untouched ng-pristine ng-invalid p-inputwrapper-filled" />
-            <label for="Street" class="disabled-floating required-field">Straße</label>
+            <input id="Street" type="text" class="p-inputtext     p-inputwrapper-filled" [(ngModel)]="data.street"/>
+            <label for="Street" class=" required-field">Straße</label>
         </div>
         <div class="p-float-label p-col-4 p-mt-6">
-            <input id="BuildingNr" type="text" class="p-inputtext p-component ng-untouched ng-pristine ng-invalid p-inputwrapper-filled" />
-            <label for="BuildingNr" class="disabled-floating required-field">Hausnummer</label>
+            <input id="BuildingNr" type="text" class="p-inputtext     p-inputwrapper-filled" [(ngModel)]="data.house"/>
+            <label for="BuildingNr" class=" required-field">Hausnummer</label>
         </div>
         <div class="p-float-label p-col-4 p-mt-6">
-            <input id="DoorNr" type="text" class="p-inputtext p-component ng-untouched ng-pristine ng-valid p-inputwrapper-filled" />
-            <label for="DoorNr" class="disabled-floating">Tür</label>
+            <input id="DoorNr" type="text" class="p-inputtext    ng-valid p-inputwrapper-filled" [(ngModel)]="data.door"/>
+            <label for="DoorNr" class="">Tür</label>
         </div>
         <div class="p-float-label p-col-4 p-mt-6">
-            <input id="StairNr" type="text" class="p-inputtext p-component ng-untouched ng-pristine ng-valid p-inputwrapper-filled" />
-            <label for="StairNr" class="disabled-floating">Stiege</label>
+            <input id="StairNr" type="text" class="p-inputtext    ng-valid p-inputwrapper-filled" [(ngModel)]="data.stair"/>
+            <label for="StairNr" class="">Stiege</label>
         </div>
 
         <div class="p-float-label p-col-4 p-mt-6">
-            <input id="PostalCode" type="text" maxlength="4" class="p-inputtext p-component ng-untouched ng-pristine ng-invalid p-inputwrapper-filled" />
-            <label for="PostalCode" class="disabled-floating required-field">PLZ</label>
+            <input id="PostalCode" type="text" maxlength="4" class="p-inputtext     p-inputwrapper-filled" [(ngModel)]="data.plz"/>
+            <label for="PostalCode" class=" required-field">PLZ</label>
         </div>
         <div class="p-float-label p-col-8 p-md-8 p-mt-6">
-            <input id="municipality" type="text" class="p-inputtext p-component ng-untouched ng-pristine ng-invalid p-inputwrapper-filled" />
-            <label for="municipality" class="disabled-floating required-field">Ort</label>
+            <input id="municipality" type="text" class="p-inputtext     p-inputwrapper-filled" [(ngModel)]="data.location"/>
+            <label for="municipality" class=" required-field">Ort</label>
         </div>
 
+        <!--
         <div class="p-float-label p-col-12 p-mt-6">
-            <input id="phoneNumber" type="tel" class="p-inputtext p-component ng-untouched ng-pristine ng-invalid p-inputwrapper-filled" />
-            <label for="phoneNumber" class="disabled-floating required-field">Telefonnummer für telefonische Kontaktaufnahme</label>
+            <input id="phoneNumber" type="tel" class="p-inputtext     p-inputwrapper-filled" />
+            <label for="phoneNumber" class=" required-field">Telefonnummer für telefonische Kontaktaufnahme</label>
         </div>
+
+
         <div class="p-float-label p-col-12 p-mt-6">
-            <input type="tel" id="MobileNumber" class="p-inputtext p-component ng-untouched ng-pristine ng-valid p-inputwrapper-filled" />
-            <label for="MobileNumber" class="disabled-floating">Mobilnummer für SMS-Benachrichtigung</label>
+            <input type="tel" id="MobileNumber" class="p-inputtext    ng-valid p-inputwrapper-filled" />
+            <label for="MobileNumber" class="">Mobilnummer für SMS-Benachrichtigung</label>
         </div>
+        -->
+
         <div class="p-float-label p-col-12 p-mt-6">
-            <input id="Email" type="mail" class="p-inputtext p-component ng-untouched ng-pristine ng-valid p-inputwrapper-filled" />
-            <label for="Email" class="disabled-floating">E-Mail Adresse</label>
+            <input id="Email" type="mail" class="p-inputtext    ng-valid p-inputwrapper-filled" [(ngModel)]="data.email"/>
+            <label for="Email" class="">E-Mail Adresse</label>
         </div>
+        <!--
         <div class="p-float-label p-col-12 p-md-12 p-mt-4 required-field">Bitte teilen Sie uns mit, wie wir Sie für die Anmeldung kontaktieren sollen.</div>
         <div class="p-col-12 p-md-12 p-mt-3 p-d-flex">
-            <div class="p-field-radioButton p-ml-5">
-                <p-radioButton value="Email" class="ng-untouched ng-pristine ng-invalid">
-                    <div class="p-radioButton p-component">
+            <div class=" p-ml-5">
+                <p-radioButton value="Email" class="  ">
+                    <div class="p-radioButton ">
                         <div class="p-hidden-accessible"><input type="radio" value="Email" /></div>
                         <div role="radio" aria-checked="false" class="p-radioButton-box"><span class="p-radioButton-icon"></span></div>
                     </div>
-                    <label class="p-radioButton-label ng-star-inserted">E-Mail</label>
+                    <label class="p-radioButton-label ">E-Mail</label>
                 </p-radioButton>
             </div>
-            <div class="p-field-radioButton p-ml-3">
-                <p-radioButton value="Sms" class="ng-untouched ng-pristine ng-invalid">
-                    <div class="p-radioButton p-component">
+            <div class=" p-ml-3">
+                <p-radioButton value="Sms" class="  ">
+                    <div class="p-radioButton ">
                         <div class="p-hidden-accessible"><input type="radio" value="Sms" /></div>
                         <div role="radio" aria-checked="false" class="p-radioButton-box"><span class="p-radioButton-icon"></span></div>
                     </div>
-                    <label class="p-radioButton-label ng-star-inserted">SMS</label>
+                    <label class="p-radioButton-label ">SMS</label>
                 </p-radioButton>
             </div>
         </div>
+        -->
         <div class="p-float-label p-col-12 p-md-12 p-mt-2">Gehören Sie zum Bildungspersonal in Österreich?</div>
         <div class="p-col-12 p-md-12 p-mt-3 p-d-flex">
-            <div class="p-field-radioButton p-ml-5">
-                <p-radioButton label="Ja" class="ng-untouched ng-pristine ng-valid">
-                    <div class="p-radioButton p-component">
-                        <div class="p-hidden-accessible"><input type="radio" value="true" /></div>
-                        <div role="radio" aria-checked="false" class="p-radioButton-box"><span class="p-radioButton-icon"></span></div>
-                    </div>
-                    <label class="p-radioButton-label ng-star-inserted">Ja</label>
-                </p-radioButton>
+            <div class="p-ml-5 p-field-radiobutton">
+                <p-radioButton name="test" value="1" label="Ja" [(ngModel)]="data.isTeacher"></p-radioButton>
             </div>
-            <div class="p-field-radioButton p-ml-3">
-                <p-radioButton label="Nein" class="ng-untouched ng-pristine ng-valid">
-                    <div class="p-radioButton p-component p-radioButton-checked">
-                        <div class="p-hidden-accessible"><input type="radio" value="false" /></div>
-                        <div role="radio" aria-checked="true" class="p-radioButton-box p-highlight"><span class="p-radioButton-icon"></span></div>
-                    </div>
-                    <label class="p-radioButton-label p-radioButton-label-active ng-star-inserted">Nein</label>
-                </p-radioButton>
+            <div class="p-ml-3 p-field-radiobutton">
+                <p-radioButton name="test" value="0" label="Nein" [(ngModel)]="data.isTeacher"></p-radioButton>
             </div>
         </div>
         <div class="p-d-flex p-mt-3">
             <div class="p-field-checkbox eula-checkbox p-ml-3 p-mr-3">
-                <p-checkbox id="acceptEula" class="ng-untouched ng-pristine ng-invalid">
-                    <div class="p-checkbox p-component">
-                        <div class="p-hidden-accessible"><input type="checkbox" value="undefined" /></div>
-
-                        <div role="checkbox" class="p-checkbox-box" aria-checked="false"><span class="p-checkbox-icon"></span></div>
-                    </div>
-                </p-checkbox>
+                <p-checkbox id="acceptEula" [(ngModel)]="agreedTerms"></p-checkbox>
             </div>
             <div class="p-grid">
                 <p>
-                    Ich melde mich selbst zur Testung an und erteile hiermit die ausdrückliche Einwilligung in die Verarbeitung der oben angeführten personenbezogenen Daten zum Zweck der Durchführung eines Corona-Antigentests. Hiermit bestätige
-                    ich die Richtigkeit meiner persönlichen Daten und erkläre mich einverstanden, dass meine Daten für die gesetzlich zulässigen Zwecke gespeichert und verwendet werden und bestätige, die
-                    <a target="_blank" href="assets/datenschutzerklärungCovid19.pdf">Datenschutzinformationen </a> gelesen zu haben.
+                    Ich melde mich selbst zur Testung an und erteile hiermit die ausdrückliche Einwilligung in die
+                    Verarbeitung der oben angeführten personenbezogenen Daten zum Zweck der Durchführung eines
+                    Corona-Antigentests. Hiermit bestätige
+                    ich die Richtigkeit meiner persönlichen Daten und erkläre mich einverstanden, dass meine Daten für
+                    die gesetzlich zulässigen Zwecke gespeichert und verwendet werden und bestätige, die
+                    <a target="_blank" href="">Datenschutzinformationen </a> gelesen zu haben.
                 </p>
             </div>
         </div>
 
         <div class="p-col-12 p-mt-3 p-grid p-mt-3 p-jc-end p-ai-center p-mb-5">
-            <p-button type="submit">
-                <button type="submit" class="p-button p-component p-ripple">
-                    Anmeldung starten
-
-                    <span class="p-button-label">&nbsp;</span>
-
-                    <span class="p-ink"></span>
-                </button>
-            </p-button>
+            <p-button type="submit" label="Anmeldung starten" (onClick)="submit()"></p-button>
         </div>
     </div>
 </section>
