@@ -12,19 +12,31 @@ import {environment} from '../environments/environment';
 import {StepsModule} from 'primeng/steps';
 import {RegistrationStepsComponent} from './pages/registration-steps/registration-steps.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {InputMaskModule} from 'primeng/inputmask';
+import {ButtonModule} from 'primeng/button';
+import {CheckboxModule} from 'primeng/checkbox';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {DropdownModule} from 'primeng/dropdown';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {InputTextModule} from 'primeng/inputtext';
+import { FooterComponent } from './shared/footer/footer.component';
+import { ImpressumComponent } from './pages/impressum/impressum.component';
 import { RegistrationStartComponent } from './sub-pages/registration-start/registration-start.component';
 import { RegistrationStationComponent } from './sub-pages/registration-station/registration-station.component';
 import { RegistrationTimeComponent } from './sub-pages/registration-time/registration-time.component';
 import { RegistrationConfirmationComponent } from './sub-pages/registration-confirmation/registration-confirmation.component';
-import {DropdownModule} from 'primeng/dropdown';
-import {FormsModule} from '@angular/forms';
+
 import {ListboxModule} from 'primeng/listbox';
-import {ButtonModule} from 'primeng/button';
+import {AccordionModule} from 'primeng/accordion';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
+        NavbarComponent,
+        FooterComponent,
+        ImpressumComponent,
         RegistrationStepsComponent,
         NavbarComponent,
         RegistrationStartComponent,
@@ -35,6 +47,8 @@ import {ButtonModule} from 'primeng/button';
     imports: [
         BrowserModule,
         AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
         BrowserAnimationsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
@@ -44,7 +58,14 @@ import {ButtonModule} from 'primeng/button';
         FormsModule,
         ListboxModule,
         ButtonModule,
-
+        NgbModule,
+        InputMaskModule,
+        ButtonModule,
+        CheckboxModule,
+        RadioButtonModule,
+        DropdownModule,
+        FontAwesomeModule,
+        InputTextModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

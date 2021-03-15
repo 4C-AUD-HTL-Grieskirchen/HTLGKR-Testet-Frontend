@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './pages/home/home.component';
 import {RegistrationStepsComponent} from './pages/registration-steps/registration-steps.component';
+import {ImpressumComponent} from './pages/impressum/impressum.component';
 
 import {RegistrationStartComponent} from './sub-pages/registration-start/registration-start.component';
 import {RegistrationStationComponent} from './sub-pages/registration-station/registration-station.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
     },
 
 
+    {path: 'impressum', component: ImpressumComponent},
     {path: '**', redirectTo: ''}
 ];
 
