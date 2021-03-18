@@ -1,15 +1,16 @@
 <h2>Teststation auswählen</h2>
 <p>Bitte wählen Sie eine der verfügbaren Teststationen aus</p>
 <label for="ddDistricts">Bezirk:</label>
-<p-dropdown id="ddDistricts" [options]="districts" [(ngModel)]="selectedDistrict" optionLabel="name" (selectionchange)="anySelectionChanged()"></p-dropdown>
-<p-listbox [options]="testingFacilities" [(ngModel)]="selectedFacility" optionLabel="name"></p-listbox>
+<p-dropdown (selectionchange)="anySelectionChanged()" [(ngModel)]="selectedDistrict" [options]="districts" id="ddDistricts"
+            optionLabel="name"></p-dropdown>
+<p-listbox [(ngModel)]="selectedFacility" [options]="testingFacilities" optionLabel="name"></p-listbox>
 <h3>Gewählte Teststation</h3>
 <div *ngIf="selectedFacility">
-    <p>{{selectedFacility.name}}</p>
-    <p>{{selectedFacility.postalCode}} {{selectedFacility.city}}</p>
-    <p>{{selectedFacility.address}}</p>
+  <p>{{selectedFacility.name}}</p>
+  <p>{{selectedFacility.postalCode}} {{selectedFacility.city}}</p>
+  <p>{{selectedFacility.address}}</p>
 </div>
 <div class="form-row">
-    <p-button label="Back" icon="pi pi-angle-left" iconPos="left" (click)="onClickBack()"></p-button>
-    <p-button label="Next" icon="pi pi-angle-right" iconPos="right" (click)="onClickNext()"></p-button>
+  <p-button (click)="onClickBack()" icon="pi pi-angle-left" iconPos="left" label="Back"></p-button>
+  <p-button (click)="onClickNext()" icon="pi pi-angle-right" iconPos="right" label="Next"></p-button>
 </div>

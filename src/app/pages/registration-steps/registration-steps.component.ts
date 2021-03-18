@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {Router} from '@angular/router';
-import {StepsModule} from 'primeng/steps';
 
 @Component({
     selector: 'app-registration-steps',

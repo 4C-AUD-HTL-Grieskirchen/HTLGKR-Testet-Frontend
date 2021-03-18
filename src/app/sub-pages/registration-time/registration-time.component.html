@@ -3,12 +3,12 @@
 <p>{{selectedFacility.postalCode}} {{selectedFacility.city}}</p> //TODO: comment in when db works
 <p>{{selectedFacility.address}}</p>-->
 
-<p-dropdown [(ngModel)]="selectedDate" (selectionchange)="getTimesFromSelectedDate()">
-    <option *ngFor="let date of availableDates" [value]="date">{{getParsedDate(date)}}</option>
+<p-dropdown (selectionchange)="getTimesFromSelectedDate()" [(ngModel)]="selectedDate">
+  <option *ngFor="let date of availableDates" [value]="date">{{getParsedDate(date)}}</option>
 </p-dropdown>
-<p-listbox [options]="availableTimes" [(ngModel)]="selectedTime" (selectionchange)="anySelectionChanged()"></p-listbox>
+<p-listbox (selectionchange)="anySelectionChanged()" [(ngModel)]="selectedTime" [options]="availableTimes"></p-listbox>
 
 <div class="form-row">
-    <p-button label="Back" icon="pi pi-angle-left" iconPos="left" (click)="onClickBack()"></p-button>
-    <p-button label="Next" icon="pi pi-angle-right" iconPos="right" (click)="onClickNext()"></p-button>
+  <p-button (click)="onClickBack()" icon="pi pi-angle-left" iconPos="left" label="Back"></p-button>
+  <p-button (click)="onClickNext()" icon="pi pi-angle-right" iconPos="right" label="Next"></p-button>
 </div>

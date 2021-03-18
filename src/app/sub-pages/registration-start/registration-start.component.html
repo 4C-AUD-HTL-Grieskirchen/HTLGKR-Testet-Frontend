@@ -2,7 +2,7 @@
 <p>Zur Sicherheit Ihrer persönlichen Datten ist es notwendig, Sie eindeutig zu identifizieren.</p>
 <p>Bitte geben Sie Ihr Geburtsdatum ein.</p>
 <label for="birthdayInput">Geburtsdatum</label>
-<input id="birthdayInput" type="date" (selectionchange)="setSelectedDate(birthday.value)" #birthday>
+<input #birthday (selectionchange)="setSelectedDate(birthday.value)" id="birthdayInput" type="date">
 <div class="form-row">
-<p-button label="Next" icon="pi pi-angle-right" iconPos="right" (click)="onClickNext()"></p-button>
+  <p-button (click)="onClickNext()" icon="pi pi-angle-right" iconPos="right" label="Next"></p-button>
 </div>

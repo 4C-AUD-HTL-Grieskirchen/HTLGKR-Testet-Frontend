@@ -1,25 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StepsCommunicationService} from '../../services/steps-communication.service';
 import {Router} from '@angular/router';
 import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
-  selector: 'app-registration-start',
-  templateUrl: './registration-start.component.html',
-  styleUrls: ['./registration-start.component.css']
+    selector: 'app-registration-start',
+    templateUrl: './registration-start.component.html',
+    styleUrls: ['./registration-start.component.css']
 })
 export class RegistrationStartComponent implements OnInit {
 
-  constructor(private store: AngularFirestore, private communication: StepsCommunicationService, private router: Router) {
-  }
+    constructor(private store: AngularFirestore, private communication: StepsCommunicationService, private router: Router) {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-    setSelectedDate(sDate: string): void{
+    setSelectedDate(sDate: string): void {
         this.communication.userBirthday = new Date(Date.parse(sDate));
     }
-    onClickNext(): void{
+
+    onClickNext(): void {
         this.router.navigate(['registration/station']);
     }
 }

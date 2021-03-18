@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {District} from '../models/District';
 import {TestingFacility} from '../models/TestingFacility';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class StepsCommunicationService {
 
@@ -12,5 +12,6 @@ export class StepsCommunicationService {
     public selectedFacility: TestingFacility | undefined;
     public selectedDate: Date | undefined;
 
-  constructor() { }
+    constructor() {
+    }
 }

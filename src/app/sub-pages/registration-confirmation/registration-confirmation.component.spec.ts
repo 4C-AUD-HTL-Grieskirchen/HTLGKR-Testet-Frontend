@@ -1,25 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RegistrationConfirmationComponent } from './registration-confirmation.component';
+import {RegistrationConfirmationComponent} from './registration-confirmation.component';
 
 describe('RegistrationConfirmationComponent', () => {
-  let component: RegistrationConfirmationComponent;
-  let fixture: ComponentFixture<RegistrationConfirmationComponent>;
+    let component: RegistrationConfirmationComponent;
+    let fixture: ComponentFixture<RegistrationConfirmationComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ RegistrationConfirmationComponent ]
-    })
-    .compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [RegistrationConfirmationComponent]
+        })
+            .compileComponents();
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(RegistrationConfirmationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(RegistrationConfirmationComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

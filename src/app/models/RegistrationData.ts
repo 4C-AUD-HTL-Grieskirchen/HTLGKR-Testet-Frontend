@@ -1,11 +1,10 @@
-
 export class RegistrationData {
 
     isTeacher: boolean;
 
     firstname: string | undefined;
     lastname: string | undefined;
-    gebDate: string | undefined;
+    birthdate: string | undefined;
     gender: number;
     social: string | undefined;
 
