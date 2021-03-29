@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {AngularFirestore} from '@angular/fire/firestore';
 import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
+
 
 @Component({
     selector: 'app-registration-start',
@@ -10,10 +10,15 @@ import {RegistrationDataProviderService} from '../../services/registration-data-
 })
 export class RegistrationStartComponent implements OnInit {
 
-    constructor(private store: AngularFirestore, private dataProvider: RegistrationDataProviderService, private router: Router) {
+
+
+    constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
+
+
     }
 
     ngOnInit(): void {
+        console.log(this.dataProvider.data.birthdate);
     }
 
     setSelectedDate(sDate: string): void {

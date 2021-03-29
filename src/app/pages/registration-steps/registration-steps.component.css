@@ -1,0 +1,19 @@
+
+section {
+
+    width: 80rem;
+    margin: 3rem auto 0;
+
+}
+
+.stepRouter {
+    height: 30rem;
+}
+
+.stepNavigation {
+    margin: 2rem;
+}
+
+.stepNavigation > p-button {
+    margin: 1rem;
+}

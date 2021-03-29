@@ -11,25 +11,20 @@ import {RegistrationData} from '../../models/RegistrationData';
 })
 export class RegistrationTimeComponent implements OnInit {
 
-    data: RegistrationData;
-
-    selectedFacility: string;
+    selectedFacility: string | undefined;
     availableDates: string[];
     selectedDate: string;
     availableTimes: string[];
     selectedTime: string;
 
-    constructor(private store: AngularFirestore, private dataProvider: RegistrationDataProviderService, private router: Router) {
+    constructor(public dataProvider: RegistrationDataProviderService) {
 
-        this.data = dataProvider.data;
-
-        this.selectedFacility = 'none';
         this.availableDates = ['NOW']; // ToDo: changed to await with db get
         this.selectedDate = this.availableDates[0];
         this.availableTimes = this.getTimesFromSelectedDate();
         this.selectedTime = this.availableTimes[0];
 
-        this.anySelectionChanged();
+        this.timeSlotSelected();
     }
 
     ngOnInit(): void {
@@ -39,7 +34,7 @@ export class RegistrationTimeComponent implements OnInit {
         let returnString = '';
 
         const dayOfWeek = date.getDay();
-        returnString += isNaN(dayOfWeek) ? null : ['Sunday, ', 'Monday, ', 'Tuesday, ', 'Wednesday, ', 'Thursday, ', 'Friday, ', 'Saturday, '][dayOfWeek];
+        returnString += isNaN(dayOfWeek) ? null : ['Sonntag, ', 'Montag, ', 'Dienstag, ', 'Mittwoch, ', 'Donnerstag, ', 'Freitag, ', 'Samstag, '][dayOfWeek];
 
         returnString += date.getUTCDate() + '.';
         returnString += date.getUTCMonth() + '.';
@@ -52,10 +47,12 @@ export class RegistrationTimeComponent implements OnInit {
         return []; // ToDo: get from db with selectedDate
     }
 
-    anySelectionChanged(): void {
+    timeSlotSelected(): void {
         if (!this.selectedDate || !this.selectedTime) {
             return;
         }
+
+        this.dataProvider.data.selectedTimeslot = this.selectedDate + this.selectedTime; // TODO: parse it ... to ISO date
         // this.selectedDate.setUTCHours(+this.selectedTime.split(':')[0], +this.selectedTime.split(':')[1]);
         // this.communication.selectedDate = this.selectedDate;
     }

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {District} from '../../models/District';
 import {TestingFacility} from '../../models/TestingFacility';
 import {Router} from '@angular/router';
 import {AngularFirestore} from '@angular/fire/firestore';
@@ -13,22 +12,28 @@ import {RegistrationDataProviderService} from '../../services/registration-data-
 })
 export class RegistrationStationComponent implements OnInit {
 
-    districts: District[] = []; // ToDo: get data from db
+    districts: string[]; // ToDo: get data from db
     testingFacilities: TestingFacility[] = []; // ToDo: get data from db
-    selectedDistrict: District | undefined; // ToDo: set first district automatically
     selectedFacility: TestingFacility | undefined;
+    selectedDistrict = '';
 
-    // maybe search for nearest district and/or facility
+    constructor(public dataProvider: RegistrationDataProviderService) {
 
-    constructor(private store: AngularFirestore, private dataProvider: RegistrationDataProviderService, private router: Router) {
+        this.districts = ['gamingland', 'phils haus'];
+
+        this.testingFacilities = [new TestingFacility( 'bled', -1, 'city', 'address', 'bled2', 1, 'bled', [])];
+
     }
 
     ngOnInit(): void {
     }
 
-    anySelectionChanged(): void {
-
+    districtSelected(): void {
+        // TODO:  Filter testing facilities ...
     }
 
-
+    facilityChanged(): void {
+        if (this.selectedFacility === undefined) { return; }
+        this.dataProvider.data.selectedFacility = this.selectedFacility.id;
+    }
 }

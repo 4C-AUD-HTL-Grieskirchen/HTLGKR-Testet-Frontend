@@ -1,18 +1,21 @@
-import {District} from './District';
 import {TimeSlot} from './TimeSlot';
 
 export class TestingFacility {
+
+    id: string | undefined;
+
     name: string;
-    postalCode: number; // ToDo: rethink all props from models
+    postalCode: number;
     city: string;
     address: string;
-    district: District;
+    district: string;
     maxUserPerTimeslot: number;
     openingHours: string;
     timeSlots: TimeSlot[];
 
-    constructor(id: number, name: string, postalCode: number, city: string, address: string, district: District,
+    constructor(name: string, postalCode: number, city: string, address: string, district: string,
                 maxUserPerTimeslot: number, openingHours: string, timeSlots: TimeSlot[]) {
+
         this.name = name;
         this.postalCode = postalCode;
         this.city = city;

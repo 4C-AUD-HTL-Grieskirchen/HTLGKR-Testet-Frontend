@@ -2,5 +2,6 @@
 <p>Zur Sicherheit Ihrer persönlichen Datten ist es notwendig, Sie eindeutig zu identifizieren.</p>
 <p>Bitte geben Sie Ihr Geburtsdatum ein.</p>
 <label for="birthdayInput">Geburtsdatum</label>
-<input #birthday (selectionchange)="setSelectedDate(birthday.value)" id="birthdayInput" type="date">
+
+<input [(ngModel)]="dataProvider.data.birthdate" id="birthdayInput" type="text" disabled>
 

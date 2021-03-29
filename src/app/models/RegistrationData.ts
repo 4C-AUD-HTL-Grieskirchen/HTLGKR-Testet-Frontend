@@ -1,4 +1,3 @@
-import {District} from './District';
 
 export class RegistrationData {
 
@@ -19,9 +18,12 @@ export class RegistrationData {
     location: string | undefined;
     email: string | undefined;
 
-    selectedDistrict: string | undefined;
-    selectedTimeslot: string | undefined;
+    qrCodeUri: string | undefined;
+    pdfUri: string | undefined;
+    pdfNumber: number | undefined;
 
+    selectedTimeslot: string | undefined;
+    selectedFacility: string | undefined;
 
     constructor() {
         this.isTeacher = false;

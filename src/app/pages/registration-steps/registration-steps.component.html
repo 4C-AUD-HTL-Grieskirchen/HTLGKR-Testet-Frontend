@@ -1,9 +1,23 @@
-<p>registration-steps works!</p>
-<p-steps [model]="steps" ></p-steps>
-<router-outlet></router-outlet>
 
 
-<div class="form-row">
-    <p-button *ngIf="currentStep > 0" (click)="onClickBack()" icon="pi pi-angle-left" iconPos="left" label="Back"></p-button>
-    <p-button *ngIf="currentStep < 3" (click)="onClickNext()" icon="pi pi-angle-right" iconPos="right" label="Next"></p-button>
-</div>
+
+<section>
+
+    <p-steps [model]="steps" ></p-steps>
+
+    <div class="stepRouter">
+        <router-outlet></router-outlet>
+    </div>
+
+
+    <div class="form-row" class="stepNavigation">
+        <p-button [disabled]="currentStep <= 0" (onClick)="onClickBack()" icon="pi pi-angle-left" iconPos="left" label="Back"></p-button>
+        <p-button [disabled]="currentStep >= 3" (onClick)="onClickNext()" icon="pi pi-angle-right" iconPos="right" label="Next"></p-button>
+    </div>
+
+
+</section>
+
+
+
+

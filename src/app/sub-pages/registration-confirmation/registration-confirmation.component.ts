@@ -10,7 +10,7 @@ import {RegistrationDataProviderService} from '../../services/registration-data-
 })
 export class RegistrationConfirmationComponent implements OnInit {
 
-    constructor(private store: AngularFirestore, private router: Router, private dataProvider: RegistrationDataProviderService) {
+    constructor(public dataProvider: RegistrationDataProviderService) {
     }
 
     ngOnInit(): void {
