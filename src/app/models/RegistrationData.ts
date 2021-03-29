@@ -1,3 +1,5 @@
+import {District} from './District';
+
 export class RegistrationData {
 
     isTeacher: boolean;
@@ -16,6 +18,10 @@ export class RegistrationData {
     plz: string | undefined;
     location: string | undefined;
     email: string | undefined;
+
+    selectedDistrict: string | undefined;
+    selectedTimeslot: string | undefined;
+
 
     constructor() {
         this.isTeacher = false;

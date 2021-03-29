@@ -1,4 +1,9 @@
 <p>registration-steps works!</p>
-<p-steps [model]="steps" [readonly]="false"></p-steps>
+<p-steps [model]="steps" ></p-steps>
 <router-outlet></router-outlet>
 
+
+<div class="form-row">
+    <p-button (click)="onClickBack()" icon="pi pi-angle-left" iconPos="left" label="Back"></p-button>
+    <p-button (click)="onClickNext()" icon="pi pi-angle-right" iconPos="right" label="Next"></p-button>
+</div>

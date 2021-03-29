@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {StepsCommunicationService} from '../../services/steps-communication.service';
 import {Router} from '@angular/router';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
 
 @Component({
     selector: 'app-registration-start',
@@ -10,14 +10,14 @@ import {AngularFirestore} from '@angular/fire/firestore';
 })
 export class RegistrationStartComponent implements OnInit {
 
-    constructor(private store: AngularFirestore, private communication: StepsCommunicationService, private router: Router) {
+    constructor(private store: AngularFirestore, private dataProvider: RegistrationDataProviderService, private router: Router) {
     }
 
     ngOnInit(): void {
     }
 
     setSelectedDate(sDate: string): void {
-        this.communication.userBirthday = new Date(Date.parse(sDate));
+        // this.communication.userBirthday = new Date(Date.parse(sDate));
     }
 
     onClickNext(): void {

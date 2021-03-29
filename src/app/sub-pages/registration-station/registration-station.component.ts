@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {District} from '../../models/District';
 import {TestingFacility} from '../../models/TestingFacility';
-import {StepsCommunicationService} from '../../services/steps-communication.service';
 import {Router} from '@angular/router';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
 
 
 @Component({
@@ -20,26 +20,15 @@ export class RegistrationStationComponent implements OnInit {
 
     // maybe search for nearest district and/or facility
 
-    constructor(private store: AngularFirestore, private communication: StepsCommunicationService, private router: Router) {
+    constructor(private store: AngularFirestore, private dataProvider: RegistrationDataProviderService, private router: Router) {
     }
 
     ngOnInit(): void {
     }
 
     anySelectionChanged(): void {
-        if (this.selectedFacility) {
-            this.communication.selectedFacility = this.selectedFacility;
-        }
-        if (this.selectedDistrict) {
-            this.communication.userDistrict = this.selectedDistrict;
-        }
+
     }
 
-    onClickNext(): void {
-        this.router.navigate(['registration/time']);
-    }
 
-    onClickBack(): void {
-        this.router.navigate(['registration/start']);
-    }
 }

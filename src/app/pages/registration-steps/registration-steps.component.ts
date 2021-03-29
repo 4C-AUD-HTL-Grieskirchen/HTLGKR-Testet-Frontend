@@ -45,7 +45,15 @@ export class RegistrationStepsComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.router.navigate(['registration/start']);
     }
 
+    onClickNext(): void {
+        this.router.navigate(['registration/confirmation']);
+    }
+
+    onClickBack(): void {
+        this.router.navigate(['registration/station']);
+    }
 
 }

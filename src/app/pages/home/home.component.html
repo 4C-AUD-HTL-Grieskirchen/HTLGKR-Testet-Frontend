@@ -3,9 +3,7 @@
   <h1>Anmeldung zum COVID-19 Schnelltest in Oberösterreich</h1>
 
   <h5 class="p-mt-3">Bitte geben Sie hier Ihre Kontaktdaten ein:</h5>
-  <label class="">Mit <span class="required-field-description">*</span> gekennzeichneten Felder sind
-    verpflichtend</label>
-
+  <label class="">Mit <span class="required-field-description">*</span> gekennzeichneten Felder sind verpflichtend</label>
   <div class="p-fluid p-formgrid p-grid ">
     <div class="p-float-label p-col-12 p-md-6 p-mt-5">
       <input [(ngModel)]="data.firstname" class="p-inputtext p-inputwrapper-filled" id="PreName" type="text"/>
@@ -32,34 +30,32 @@
     </div>
 
     <div class="p-float-label p-col-12 p-md-6 p-mt-6">
-      <p-inputMask class="ng-valid ng-touched ng-dirty" id="SvnrDate" mask="999999" placeholder="TTMMJJ"
-                   type="text"></p-inputMask>
+      <p-inputMask class="ng-valid ng-touched ng-dirty" id="SvnrDate" mask="999999" placeholder="TTMMJJ" type="text"></p-inputMask>
     </div>
 
     <div class="p-float-label p-col-12 p-mt-6">
-      <input [(ngModel)]="data.street" class="p-inputtext     p-inputwrapper-filled" id="Street" type="text"/>
+      <input [(ngModel)]="data.street" class="p-inputtext p-inputwrapper-filled" id="Street" type="text"/>
       <label class=" required-field" for="Street">Straße</label>
     </div>
     <div class="p-float-label p-col-4 p-mt-6">
-      <input [(ngModel)]="data.house" class="p-inputtext     p-inputwrapper-filled" id="BuildingNr" type="text"/>
+      <input [(ngModel)]="data.house" class="p-inputtext p-inputwrapper-filled" id="BuildingNr" type="text"/>
       <label class=" required-field" for="BuildingNr">Hausnummer</label>
     </div>
     <div class="p-float-label p-col-4 p-mt-6">
-      <input [(ngModel)]="data.door" class="p-inputtext    ng-valid p-inputwrapper-filled" id="DoorNr" type="text"/>
+      <input [(ngModel)]="data.door" class="p-inputtext ng-valid p-inputwrapper-filled" id="DoorNr" type="text"/>
       <label class="" for="DoorNr">Tür</label>
     </div>
     <div class="p-float-label p-col-4 p-mt-6">
-      <input [(ngModel)]="data.stair" class="p-inputtext    ng-valid p-inputwrapper-filled" id="StairNr" type="text"/>
+      <input [(ngModel)]="data.stair" class="p-inputtext ng-valid p-inputwrapper-filled" id="StairNr" type="text"/>
       <label class="" for="StairNr">Stiege</label>
     </div>
-
     <div class="p-float-label p-col-4 p-mt-6">
-      <input [(ngModel)]="data.plz" class="p-inputtext     p-inputwrapper-filled" id="PostalCode" maxlength="4"
+      <input [(ngModel)]="data.plz" class="p-inputtext p-inputwrapper-filled" id="PostalCode" maxlength="4"
              type="text"/>
       <label class=" required-field" for="PostalCode">PLZ</label>
     </div>
     <div class="p-float-label p-col-8 p-md-8 p-mt-6">
-      <input [(ngModel)]="data.location" class="p-inputtext     p-inputwrapper-filled" id="municipality" type="text"/>
+      <input [(ngModel)]="data.location" class="p-inputtext p-inputwrapper-filled" id="municipality" type="text"/>
       <label class=" required-field" for="municipality">Ort</label>
     </div>
 

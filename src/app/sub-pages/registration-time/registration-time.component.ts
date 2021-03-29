@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {TestingFacility} from '../../models/TestingFacility';
-import {StepsCommunicationService} from '../../services/steps-communication.service';
 import {Router} from '@angular/router';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
+import {RegistrationData} from '../../models/RegistrationData';
 
 @Component({
     selector: 'app-registration-time',
@@ -11,15 +11,20 @@ import {AngularFirestore} from '@angular/fire/firestore';
 })
 export class RegistrationTimeComponent implements OnInit {
 
-    selectedFacility: TestingFacility;
-    availableDates: Date[];
-    selectedDate: Date;
+    data: RegistrationData;
+
+    selectedFacility: string;
+    availableDates: string[];
+    selectedDate: string;
     availableTimes: string[];
     selectedTime: string;
 
-    constructor(private store: AngularFirestore, private communication: StepsCommunicationService, private router: Router) {
-        this.selectedFacility = (communication.selectedFacility as TestingFacility);
-        this.availableDates = []; // ToDo: changed to await with db get
+    constructor(private store: AngularFirestore, private dataProvider: RegistrationDataProviderService, private router: Router) {
+
+        this.data = dataProvider.data;
+
+        this.selectedFacility = 'none';
+        this.availableDates = ['NOW']; // ToDo: changed to await with db get
         this.selectedDate = this.availableDates[0];
         this.availableTimes = this.getTimesFromSelectedDate();
         this.selectedTime = this.availableTimes[0];
@@ -28,14 +33,6 @@ export class RegistrationTimeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-    }
-
-    onClickNext(): void {
-        this.router.navigate(['registration/confirmation']);
-    }
-
-    onClickBack(): void {
-        this.router.navigate(['registration/station']);
     }
 
     getParsedDate(date: Date): string {
@@ -59,8 +56,8 @@ export class RegistrationTimeComponent implements OnInit {
         if (!this.selectedDate || !this.selectedTime) {
             return;
         }
-        this.selectedDate.setUTCHours(+this.selectedTime.split(':')[0], +this.selectedTime.split(':')[1]);
-        this.communication.selectedDate = this.selectedDate;
+        // this.selectedDate.setUTCHours(+this.selectedTime.split(':')[0], +this.selectedTime.split(':')[1]);
+        // this.communication.selectedDate = this.selectedDate;
     }
 
     // ToDo: next button should call pdf creation and return number of "Laufzettel"

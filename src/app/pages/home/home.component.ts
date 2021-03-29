@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RegistrationData} from '../../models/RegistrationData';
+import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
 
 @Component({
     selector: 'app-home',
@@ -11,8 +12,8 @@ export class HomeComponent implements OnInit {
     agreedTerms: boolean;
     data: RegistrationData;
 
-    constructor() {
-        this.data = new RegistrationData();
+    constructor(private dataProvider: RegistrationDataProviderService) {
+        this.data = dataProvider.data;
         this.agreedTerms = false;
     }
 
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
     }
 
     submit(): void {
-        console.log(this.data);
+        console.log(this.dataProvider.data);
     }
 
 }
