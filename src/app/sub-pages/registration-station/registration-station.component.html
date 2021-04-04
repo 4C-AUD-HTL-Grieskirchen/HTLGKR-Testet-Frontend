@@ -1,5 +1,5 @@
-<h2>Teststation auswählen</h2>
-<p>Bitte wählen Sie eine der verfügbaren Teststationen aus</p>
+<h2>Screeningstation auswählen</h2>
+<p>Bitte wählen Sie eine der verfügbaren Screeningstationen aus</p>
 
 <label for="ddDistricts">Bezirk:</label>
 
@@ -8,11 +8,15 @@
 <p-listbox [(ngModel)]="selectedFacility" [options]="testingFacilities" (selectionchange)="facilityChanged()" optionLabel="name"></p-listbox>
 
 
-<h3>Gewählte Teststation</h3>
+<h3>Gewählte Screeningstation</h3>
 
 
 <div *ngIf="selectedFacility">
   <p>{{selectedFacility.name}}</p>
   <p>{{selectedFacility.postalCode}} {{selectedFacility.city}}</p>
   <p>{{selectedFacility.address}}</p>
+</div>
+
+<div class="form-row" class="stepNavigation">
+    <p-button (onClick)="submit()" label="Weiter"></p-button>
 </div>

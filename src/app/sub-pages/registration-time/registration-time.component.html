@@ -11,4 +11,6 @@
 
 <p-listbox (selectionchange)="timeSlotSelected()" [(ngModel)]="dataProvider.data.selectedTimeslot" [options]="availableTimes"></p-listbox>
 
-
+<div class="form-row" class="stepNavigation">
+    <p-button (onClick)="submit()" label="Buchung abschließen"></p-button>
+</div>

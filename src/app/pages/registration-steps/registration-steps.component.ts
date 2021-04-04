@@ -10,10 +10,7 @@ import {Router} from '@angular/router';
 export class RegistrationStepsComponent implements OnInit {
 
     steps: MenuItem[];
-    currentStep: number;
-
     constructor(private router: Router) {
-        this.currentStep = -1;
         this.steps = [
             {
                 label: 'Step 1',
@@ -46,18 +43,7 @@ export class RegistrationStepsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.currentStep = 0;
         this.router.navigate(['registration/start']);
-    }
-
-    onClickNext(): void {
-        this.currentStep++;
-        this.router.navigate(['registration/' + this.steps[this.currentStep].routerLink]);
-    }
-
-    onClickBack(): void {
-        this.currentStep--;
-        this.router.navigate(['registration/' + this.steps[this.currentStep].routerLink]);
     }
 
 }

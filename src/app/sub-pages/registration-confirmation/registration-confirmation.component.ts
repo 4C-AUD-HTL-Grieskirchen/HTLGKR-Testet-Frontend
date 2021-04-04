@@ -10,9 +10,11 @@ import {RegistrationDataProviderService} from '../../services/registration-data-
 })
 export class RegistrationConfirmationComponent implements OnInit {
 
-    constructor(public dataProvider: RegistrationDataProviderService) {
+    constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
     }
 
     ngOnInit(): void {
     }
+
+
 }

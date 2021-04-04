@@ -25,7 +25,7 @@ export class RegistrationStartComponent implements OnInit {
         // this.communication.userBirthday = new Date(Date.parse(sDate));
     }
 
-    onClickNext(): void {
+    submit(): void {
         this.router.navigate(['registration/station']);
     }
 }

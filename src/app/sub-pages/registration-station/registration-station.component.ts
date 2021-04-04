@@ -17,7 +17,7 @@ export class RegistrationStationComponent implements OnInit {
     selectedFacility: TestingFacility | undefined;
     selectedDistrict = '';
 
-    constructor(public dataProvider: RegistrationDataProviderService) {
+    constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
 
         this.districts = ['gamingland', 'phils haus'];
 
@@ -35,5 +35,9 @@ export class RegistrationStationComponent implements OnInit {
     facilityChanged(): void {
         if (this.selectedFacility === undefined) { return; }
         this.dataProvider.data.selectedFacility = this.selectedFacility.id;
+    }
+
+    submit(): void {
+        this.router.navigate(['registration/time']);
     }
 }

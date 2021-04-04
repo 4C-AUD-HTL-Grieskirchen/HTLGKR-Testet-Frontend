@@ -17,7 +17,7 @@ export class RegistrationTimeComponent implements OnInit {
     availableTimes: string[];
     selectedTime: string;
 
-    constructor(public dataProvider: RegistrationDataProviderService) {
+    constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
 
         this.availableDates = ['NOW']; // ToDo: changed to await with db get
         this.selectedDate = this.availableDates[0];
@@ -58,4 +58,7 @@ export class RegistrationTimeComponent implements OnInit {
     }
 
     // ToDo: next button should call pdf creation and return number of "Laufzettel"
+    submit(): void {
+        this.router.navigate(['registration/confirmation']);
+    }
 }
