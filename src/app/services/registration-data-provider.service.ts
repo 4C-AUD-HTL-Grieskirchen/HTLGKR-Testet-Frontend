@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {RegistrationData} from '../models/RegistrationData';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {TestingFacility} from '../models/TestingFacility';
+import {Screeningstation} from '../models/Screeningstation';
 
 @Injectable({
     providedIn: 'root'
 })
 export class RegistrationDataProviderService {
 
-    public selectedFacility: TestingFacility | undefined;
+    public selectedFacility: Screeningstation | undefined;
 
     public data: RegistrationData;
 

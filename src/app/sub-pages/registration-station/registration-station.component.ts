@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TestingFacility} from '../../models/TestingFacility';
+import {Screeningstation} from '../../models/Screeningstation';
 import {Router} from '@angular/router';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
@@ -13,15 +13,15 @@ import {RegistrationDataProviderService} from '../../services/registration-data-
 export class RegistrationStationComponent implements OnInit {
 
     districts: string[]; // ToDo: get data from db
-    testingFacilities: TestingFacility[] = []; // ToDo: get data from db
-    selectedFacility: TestingFacility | undefined;
+    testingFacilities: Screeningstation[] = []; // ToDo: get data from db
+    selectedFacility: Screeningstation | undefined;
     selectedDistrict = '';
 
     constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
 
         this.districts = ['gamingland', 'phils haus'];
 
-        this.testingFacilities = [new TestingFacility( 'Die Teststrasse der Teststrassen', 4600, 'Wels', 'Teststrasse 123', 'bled2', 1, 'bled', [])];
+        this.testingFacilities = [new Screeningstation( 'Die Teststrasse der Teststrassen', 4600, 'Wels', 'Teststrasse 123', 'bled2', 1, 'bled', [])];
 
     }
 

@@ -1,6 +1,6 @@
 import {TimeSlot} from './TimeSlot';
 
-export class TestingFacility {
+export class Screeningstation {
 
     id: string | undefined;
 

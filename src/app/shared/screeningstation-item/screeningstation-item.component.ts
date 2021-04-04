@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TestingFacility} from '../../models/TestingFacility';
+import {Screeningstation} from '../../models/Screeningstation';
 import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -11,7 +11,7 @@ export class ScreeningstationItemComponent implements OnInit {
 
     faMarker = faMapMarkerAlt;
 
-    @Input() screeningStation: TestingFacility | undefined;
+    @Input() screeningStation: Screeningstation | undefined;
 
   constructor() { }
 
