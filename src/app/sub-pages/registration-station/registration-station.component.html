@@ -5,7 +5,15 @@
 
 <p-dropdown [(ngModel)]="selectedDistrict" [options]="districts" (selectionchange)="districtSelected()" id="ddDistricts"></p-dropdown>
 
-<p-listbox [(ngModel)]="selectedFacility" [options]="testingFacilities" (selectionchange)="facilityChanged()" optionLabel="name"></p-listbox>
+<p-listbox [(ngModel)]="selectedFacility" [options]="testingFacilities" (selectionchange)="facilityChanged()" optionLabel="name">
+    <ng-template let-facility pTemplate="item">
+        <div class="facility-item">
+            <p>{{facility.name}}</p>
+            <p>{{facility.postalCode}} {{facility.city}}</p>
+            <p>{{facility.address}}</p>
+        </div>
+    </ng-template>
+</p-listbox>
 
 
 <h3>Gewählte Screeningstation</h3>
