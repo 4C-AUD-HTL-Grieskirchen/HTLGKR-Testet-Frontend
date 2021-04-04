@@ -5,26 +5,18 @@
 
 <p-dropdown [(ngModel)]="selectedDistrict" [options]="districts" (selectionchange)="districtSelected()" id="ddDistricts"></p-dropdown>
 
-<p-listbox [(ngModel)]="selectedFacility" [options]="testingFacilities" (selectionchange)="facilityChanged()" optionLabel="name">
+<p-listbox [(ngModel)]="selectedFacility" [options]="testingFacilities" (onChange)="facilityChanged()" optionLabel="name">
     <ng-template let-facility pTemplate="item">
-        <div class="facility-item">
-            <p>{{facility.name}}</p>
-            <p>{{facility.postalCode}} {{facility.city}}</p>
-            <p>{{facility.address}}</p>
-        </div>
+        <app-screeningstation-item [screeningStation]="facility"></app-screeningstation-item>
     </ng-template>
 </p-listbox>
 
-
-<h3>Gewählte Screeningstation</h3>
-
-
 <div *ngIf="selectedFacility">
-  <p>{{selectedFacility.name}}</p>
-  <p>{{selectedFacility.postalCode}} {{selectedFacility.city}}</p>
-  <p>{{selectedFacility.address}}</p>
+    <h3>Gewählte Screeningstation</h3>
+
+    <app-screeningstation-item [screeningStation]="selectedFacility"></app-screeningstation-item>
 </div>
 
-<div class="form-row" class="stepNavigation">
+<div class="form-row stepNavigation">
     <p-button (onClick)="submit()" label="Weiter"></p-button>
 </div>

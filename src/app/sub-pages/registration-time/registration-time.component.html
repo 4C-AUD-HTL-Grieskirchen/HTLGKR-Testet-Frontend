@@ -1,8 +1,5 @@
 <h2>Buchen Sie Ihren Testtermin</h2>
-<!--<p>{{selectedFacility.name}}</p>
-<p>{{selectedFacility.postalCode}} {{selectedFacility.city}}</p> //TODO: comment in when db works
-<p>{{selectedFacility.address}}</p>-->
-
+<app-screeningstation-item [screeningStation]="dataProvider.selectedFacility"></app-screeningstation-item>
 
 <p-dropdown [options]="availableDates" [(ngModel)]="selectedDate">
 
@@ -11,6 +8,6 @@
 
 <p-listbox (selectionchange)="timeSlotSelected()" [(ngModel)]="dataProvider.data.selectedTimeslot" [options]="availableTimes"></p-listbox>
 
-<div class="form-row" class="stepNavigation">
+<div class="form-row stepNavigation">
     <p-button (onClick)="submit()" label="Buchung abschließen"></p-button>
 </div>

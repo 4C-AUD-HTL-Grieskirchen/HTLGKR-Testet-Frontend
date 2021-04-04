@@ -28,6 +28,7 @@ import {RegistrationTimeComponent} from './sub-pages/registration-time/registrat
 import {RegistrationConfirmationComponent} from './sub-pages/registration-confirmation/registration-confirmation.component';
 
 import {ListboxModule} from 'primeng/listbox';
+import { ScreeningstationItemComponent } from './shared/screeningstation-item/screeningstation-item.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import {ListboxModule} from 'primeng/listbox';
         RegistrationStartComponent,
         RegistrationStationComponent,
         RegistrationTimeComponent,
-        RegistrationConfirmationComponent
+        RegistrationConfirmationComponent,
+        ScreeningstationItemComponent
     ],
     imports: [
         BrowserModule,

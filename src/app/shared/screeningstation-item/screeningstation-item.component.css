@@ -1,0 +1,18 @@
+.itemWrapper {
+    width: fit-content;
+}
+
+.contentRow {
+    width: max-content;
+}
+
+.col-2{
+    vertical-align: center;
+    margin: auto 1.4rem auto 0;
+}
+
+fa-icon {
+    width: 100%;
+    color: #cf2026;
+    font-size: 1.6rem;
+}

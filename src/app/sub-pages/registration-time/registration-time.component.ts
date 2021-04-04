@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {AngularFirestore} from '@angular/fire/firestore';
 import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
-import {RegistrationData} from '../../models/RegistrationData';
 
 @Component({
     selector: 'app-registration-time',

@@ -21,7 +21,7 @@ export class RegistrationStationComponent implements OnInit {
 
         this.districts = ['gamingland', 'phils haus'];
 
-        this.testingFacilities = [new TestingFacility( 'bled', -1, 'city', 'address', 'bled2', 1, 'bled', [])];
+        this.testingFacilities = [new TestingFacility( 'Die Teststrasse der Teststrassen', 4600, 'Wels', 'Teststrasse 123', 'bled2', 1, 'bled', [])];
 
     }
 
@@ -35,6 +35,7 @@ export class RegistrationStationComponent implements OnInit {
     facilityChanged(): void {
         if (this.selectedFacility === undefined) { return; }
         this.dataProvider.data.selectedFacility = this.selectedFacility.id;
+        this.dataProvider.selectedFacility = this.selectedFacility;
     }
 
     submit(): void {
