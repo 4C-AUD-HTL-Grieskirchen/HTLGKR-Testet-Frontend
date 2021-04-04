@@ -34,7 +34,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "src/assets/css/theme/saga-custom.css",
+              "src/theme.css",
               "node_modules/primeflex/primeflex.css",
               "src/styles.css"
             ],
@@ -59,7 +59,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
