@@ -5,16 +5,16 @@
 
 <p-dropdown [(ngModel)]="selectedDistrict" [options]="districts" (selectionchange)="districtSelected()" id="ddDistricts"></p-dropdown>
 
-<p-listbox [(ngModel)]="selectedFacility" [options]="testingFacilities" (onChange)="facilityChanged()" optionLabel="name">
+<p-listbox [(ngModel)]="selectedStation" [options]="screeningstations" (onChange)="stationChanged()" optionLabel="name">
     <ng-template let-facility pTemplate="item">
         <app-screeningstation-item [screeningStation]="facility"></app-screeningstation-item>
     </ng-template>
 </p-listbox>
 
-<div *ngIf="selectedFacility">
+<div *ngIf="selectedStation">
     <h3>Gewählte Screeningstation</h3>
 
-    <app-screeningstation-item [screeningStation]="selectedFacility"></app-screeningstation-item>
+    <app-screeningstation-item [screeningStation]="selectedStation"></app-screeningstation-item>
 </div>
 
 <div class="form-row stepNavigation">

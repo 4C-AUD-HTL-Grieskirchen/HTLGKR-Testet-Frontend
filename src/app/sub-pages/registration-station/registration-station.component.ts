@@ -13,15 +13,15 @@ import {RegistrationDataProviderService} from '../../services/registration-data-
 export class RegistrationStationComponent implements OnInit {
 
     districts: string[]; // ToDo: get data from db
-    testingFacilities: Screeningstation[] = []; // ToDo: get data from db
-    selectedFacility: Screeningstation | undefined;
+    screeningstations: Screeningstation[] = []; // ToDo: get data from db
+    selectedStation: Screeningstation | undefined;
     selectedDistrict = '';
 
     constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
 
         this.districts = ['gamingland', 'phils haus'];
 
-        this.testingFacilities = [new Screeningstation( 'Die Teststrasse der Teststrassen', 4600, 'Wels', 'Teststrasse 123', 'bled2', 1, 'bled', [])];
+        this.screeningstations = [new Screeningstation( 'Die Teststrasse der Teststrassen', 4600, 'Wels', 'Teststrasse 123', 'bled2', 1, 'bled', [])];
 
     }
 
@@ -32,10 +32,10 @@ export class RegistrationStationComponent implements OnInit {
         // TODO:  Filter testing facilities ...
     }
 
-    facilityChanged(): void {
-        if (this.selectedFacility === undefined) { return; }
-        this.dataProvider.data.selectedFacility = this.selectedFacility.id;
-        this.dataProvider.selectedFacility = this.selectedFacility;
+    stationChanged(): void {
+        if (this.selectedStation === undefined) { return; }
+        this.dataProvider.data.selectedFacility = this.selectedStation.id;
+        this.dataProvider.selectedFacility = this.selectedStation;
     }
 
     submit(): void {
