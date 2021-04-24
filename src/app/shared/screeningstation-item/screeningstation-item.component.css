@@ -6,13 +6,13 @@
     width: max-content;
 }
 
-.col-2{
-    vertical-align: center;
-    margin: auto 1.4rem auto 0;
+.col-3{
+    display: flex;
+    justify-content: center;
+    margin: auto 0;
 }
 
 fa-icon {
-    width: 100%;
     color: #cf2026;
-    font-size: 1.6rem;
+    font-size: 2.6rem;
 }
