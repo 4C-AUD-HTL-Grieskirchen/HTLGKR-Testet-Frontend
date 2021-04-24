@@ -2,7 +2,7 @@
 <p>Zur Sicherheit Ihrer persönlichen Datten ist es notwendig, Sie eindeutig zu identifizieren.</p>
 <p>Bitte geben Sie Ihr Geburtsdatum ein.</p>
 <label for="birthdayInput">Geburtsdatum</label>
-<input [(ngModel)]="dataProvider.data.birthdate" id="birthdayInput" mask="99.99.9999" placeholder="TT.MM.JJJJ">
+<p-inputMask [(ngModel)]="dataProvider.data.birthdate" id="birthdayInput" mask="99.99.9999" placeholder="TT.MM.JJJJ"></p-inputMask>
 
 <div class="form-row" class="stepNavigation">
     <p-button (onClick)="submit()" label="Bestätigen"></p-button>
