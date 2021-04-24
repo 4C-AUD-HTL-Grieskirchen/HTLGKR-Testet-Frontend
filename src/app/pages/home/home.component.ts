@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RegistrationData} from '../../models/RegistrationData';
 import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
 import {Router} from '@angular/router';
-import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
     selector: 'app-home',
@@ -22,48 +22,48 @@ export class HomeComponent implements OnInit {
         this.agreedTerms = false;
     }
 
-    get firstname(): AbstractControl {
-        return this.registrationForm.get('firstname') as AbstractControl;
+    get firstname(): FormControl {
+        return this.registrationForm.get('firstname') as FormControl;
     }
 
-    get lastname(): AbstractControl {
-        return this.registrationForm.get('lastname') as AbstractControl;
+    get lastname(): FormControl {
+        return this.registrationForm.get('lastname') as FormControl;
     }
 
-    get birthdate(): AbstractControl {
-        return this.registrationForm.get('birthdate') as AbstractControl;
+    get birthdate(): FormControl {
+        return this.registrationForm.get('birthdate') as FormControl;
     }
 
-    get gender(): AbstractControl {
-        return this.registrationForm.get('gender') as AbstractControl;
+    get gender(): FormControl {
+        return this.registrationForm.get('gender') as FormControl;
     }
 
-    get street(): AbstractControl {
-        return this.registrationForm.get('street') as AbstractControl;
+    get street(): FormControl {
+        return this.registrationForm.get('street') as FormControl;
     }
 
-    get house(): AbstractControl {
-        return this.registrationForm.get('house') as AbstractControl;
+    get house(): FormControl {
+        return this.registrationForm.get('house') as FormControl;
     }
 
-    get door(): AbstractControl {
-        return this.registrationForm.get('door') as AbstractControl;
+    get door(): FormControl {
+        return this.registrationForm.get('door') as FormControl;
     }
 
-    get stair(): AbstractControl {
-        return this.registrationForm.get('stair') as AbstractControl;
+    get stair(): FormControl {
+        return this.registrationForm.get('stair') as FormControl;
     }
 
-    get plz(): AbstractControl {
-        return this.registrationForm.get('plz') as AbstractControl;
+    get plz(): FormControl {
+        return this.registrationForm.get('plz') as FormControl;
     }
 
-    get location(): AbstractControl {
-        return this.registrationForm.get('location') as AbstractControl;
+    get location(): FormControl {
+        return this.registrationForm.get('location') as FormControl;
     }
 
-    get email(): AbstractControl {
-        return this.registrationForm.get('email') as AbstractControl;
+    get email(): FormControl {
+        return this.registrationForm.get('email') as FormControl;
     }
 
     get isTeacher(): FormControl {
