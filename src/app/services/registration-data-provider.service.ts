@@ -83,23 +83,17 @@ export class RegistrationDataProviderService {
             return;
         }
 
-        console.log("lolol");
-
         const stationId = this.selectedScreeningStation.id;
         const timeDayId = this.selectedTimeDay.id;
-
         const path = `ScreeningStations/${stationId}/timeDays/${timeDayId}/slots`;
-
-        console.log(path);
 
         this.fire.firestore.collection(path).get().then(value => {
             this.availableTimeSlots = [];
-            console.log(value);
+
             value.forEach(result => {
-                console.log(result);
                 const timeSlot = result.data() as TimeSlot;
                 timeSlot.id = result.id;
-                console.log(result);
+
                 this.availableTimeSlots.push(timeSlot);
             });
         });
