@@ -29,7 +29,7 @@
 
     <div class="p-float-label p-col-12 p-md-6 p-mt-6">
       <p-inputMask class="p-inputwrapper-filled" formControlName="birthdate" id="Geb" mask="99.99.9999"
-                   placeholder="TT.MM.JJJJ"></p-inputMask>
+                   placeholder="TT.MM.JJJJ" (onBlur)="birthdateBlur()"></p-inputMask>
       <label class=" required-field" for="Geb">Geburtsdatum</label>
 
       <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)" class="alert alert-danger">
@@ -37,21 +37,24 @@
       </div>
     </div>
 
-    <!-- TODO: fill gender comboBox; implement Form Validation -->
     <div class="p-float-label p-col-12 p-md-6 p-mt-6">
-      <p-dropdown class="p-inputwrapper-filled" id="sex"></p-dropdown>
+      <p-dropdown [options]="genders" class="p-inputwrapper-filled" id="sex"></p-dropdown>
       <label class=" required-field" for="Sex">Geschlecht</label>
     </div>
 
     <!-- TODO: social number binding -->
     <div class="p-float-label p-col-12 p-md-6 p-mt-6">
-      <p-inputMask class="ng-valid ng-touched ng-dirty p-inputwrapper-filled" id="Svnr" mask="9999" placeholder="XXXX"
-                   type="text"></p-inputMask>
+      <p-inputMask class="p-inputwrapper-filled" formControlName="social" id="Svnr" mask="9999"
+                   placeholder="XXXX"></p-inputMask>
       <label class="" for="Svnr">Sozialversicherungsnummer</label>
+
+      <div *ngIf="social.invalid && (social.dirty || social.touched)" class="alert alert-danger">
+        Bitte geben Sie Ihre Sozialversicherungsnummer ein.
+      </div>
     </div>
     <div class="p-float-label p-col-12 p-md-6 p-mt-6">
       <p-inputMask class="ng-valid ng-touched ng-dirty" id="SvnrDate" mask="999999" placeholder="TTMMJJ"
-                   type="text"></p-inputMask>
+                   type="text" formControlName="socialDate"></p-inputMask>
     </div>
 
     <div class="p-float-label p-col-12 p-mt-6">
@@ -101,7 +104,7 @@
     </div>
 
     <div class="p-float-label p-col-12 p-mt-6">
-      <input class="p-inputtext ng-valid p-inputwrapper-filled" formControlName="email" id="Email" type="mail"/>
+      <input class="p-inputtext ng-valid p-inputwrapper-filled" formControlName="email" id="Email" email type="email"/>
       <label class="" for="Email">E-Mail Adresse</label>
 
       <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
@@ -121,7 +124,7 @@
 
     <div class="p-d-flex p-mt-3">
       <div class="p-field-checkbox eula-checkbox p-ml-3 p-mr-3">
-        <p-checkbox id="acceptEula"></p-checkbox>
+        <p-checkbox formControlName="agreedTerms" id="acceptEula"></p-checkbox>
       </div>
       <div class="p-grid">
         <p>
@@ -133,6 +136,11 @@
           <a href="" target="_blank">Datenschutzinformationen </a> gelesen zu haben.
         </p>
       </div>
+    </div>
+
+    <div *ngIf="agreedTerms.invalid && (agreedTerms.dirty || agreedTerms.touched)"
+         class="alert alert-danger p-d-flex p-ml-4">
+      Bitte stimmen Sie den Datenschutzbestimmungen zu.
     </div>
 
     <div class="p-col-12 p-mt-3 p-grid p-mt-3 p-jc-end p-ai-center p-mb-5">

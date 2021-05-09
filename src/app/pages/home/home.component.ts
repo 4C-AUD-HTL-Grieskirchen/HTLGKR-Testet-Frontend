@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {RegistrationData} from '../../models/RegistrationData';
 import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -12,14 +11,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class HomeComponent implements OnInit {
 
     registrationForm: FormGroup;
-    data: RegistrationData;
-    social: string | undefined;
-    agreedTerms: boolean;
+    terms: boolean;
+    genders: string[] = ['Weiblich', 'Männlich', 'Divers'];
+    socialNumDate: string | undefined;
 
     constructor(private dataProvider: RegistrationDataProviderService, private router: Router) {
         this.registrationForm = new FormGroup({});
-        this.data = dataProvider.data;
-        this.agreedTerms = false;
+        this.dataProvider.data = dataProvider.data;
+        this.terms = false;
     }
 
     get firstname(): FormControl {
@@ -36,6 +35,14 @@ export class HomeComponent implements OnInit {
 
     get gender(): FormControl {
         return this.registrationForm.get('gender') as FormControl;
+    }
+
+    get social(): FormControl {
+        return this.registrationForm.get('social') as FormControl;
+    }
+
+    get socialDate(): FormControl {
+        return this.registrationForm.get('socialDate') as FormControl;
     }
 
     get street(): FormControl {
@@ -70,26 +77,47 @@ export class HomeComponent implements OnInit {
         return this.registrationForm.get('isTeacher') as FormControl;
     }
 
+    get agreedTerms(): FormControl {
+        return this.registrationForm.get('agreedTerms') as FormControl;
+    }
+
     ngOnInit(): void {
         this.registrationForm = new FormGroup({
-            firstname: new FormControl(this.data.firstname, Validators.required),
-            lastname: new FormControl(this.data.lastname, Validators.required),
-            birthdate: new FormControl(this.data.birthdate, Validators.required),
-            gender: new FormControl(this.data.gender, Validators.required),
-            street: new FormControl(this.data.street, Validators.required),
-            house: new FormControl(this.data.house, Validators.required),
-            door: new FormControl(this.data.door),
-            stair: new FormControl(this.data.stair),
-            plz: new FormControl(this.data.plz, Validators.required),
-            location: new FormControl(this.data.location, Validators.required),
-            email: new FormControl(this.data.email, Validators.required),
-            isTeacher: new FormControl(this.data.isTeacher)
+            firstname: new FormControl(this.dataProvider.data.firstname, Validators.required),
+            lastname: new FormControl(this.dataProvider.data.lastname, Validators.required),
+            birthdate: new FormControl(this.dataProvider.data.birthdate, Validators.required),
+            gender: new FormControl(this.dataProvider.data.gender, Validators.required),
+            social: new FormControl(this.dataProvider.data.social, Validators.required),
+            socialDate: new FormControl(this.socialNumDate),
+            street: new FormControl(this.dataProvider.data.street, Validators.required),
+            house: new FormControl(this.dataProvider.data.house, Validators.required),
+            door: new FormControl(this.dataProvider.data.door),
+            stair: new FormControl(this.dataProvider.data.stair),
+            plz: new FormControl(this.dataProvider.data.plz, Validators.required),
+            location: new FormControl(this.dataProvider.data.location, Validators.required),
+            email: new FormControl(this.dataProvider.data.email, Validators.required),
+            isTeacher: new FormControl(this.dataProvider.data.isTeacher),
+            agreedTerms: new FormControl(this.terms, Validators.required)
         });
     }
 
     submit(): void {
         console.log(this.dataProvider.data);
-        this.router.navigate(['registration']);
+
+        if (this.registrationForm.valid && this.agreedTerms.value) {
+            this.router.navigate(['registration']);
+
+        } else {
+            this.registrationForm.markAllAsTouched();
+        }
     }
 
+    birthdateBlur(): void {
+        if (this.birthdate.valid) {
+            const date = Array.from(this.birthdate.value);
+            date.splice(2, 1);
+            date.splice(4, 3);
+            this.socialDate.setValue(date);
+        }
+    }
 }
