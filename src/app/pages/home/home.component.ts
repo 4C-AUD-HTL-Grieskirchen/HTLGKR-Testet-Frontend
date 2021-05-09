@@ -99,11 +99,9 @@ export class HomeComponent implements OnInit {
     }
 
     submit(): void {
-        console.log(this.dataProvider.data);
-
         if (this.registrationForm.valid && this.agreedTerms.value) {
             this.social.setValue(`${this.social.value}${this.socialDate.value}`);
-            // TODO: store data in firebase
+            this.dataProvider.submitRegistration();
             this.router.navigate(['registration']);
 
         } else {
