@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
+import {dashCaseToCamelCase} from "@angular/compiler/src/util";
 
 @Component({
     selector: 'app-registration-time',
@@ -9,23 +10,16 @@ import {RegistrationDataProviderService} from '../../services/registration-data-
 })
 export class RegistrationTimeComponent implements OnInit {
 
-    selectedFacility: string | undefined;
-    availableDates: string[];
-    selectedDate: string;
-    availableTimes: string[];
-    selectedTime: string;
+
+
 
     constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
-
-        this.availableDates = ['NOW']; // ToDo: changed to await with db get
-        this.selectedDate = this.availableDates[0];
-        this.availableTimes = this.getTimesFromSelectedDate();
-        this.selectedTime = this.availableTimes[0];
-
         this.timeSlotSelected();
+        dataProvider.loadTimeDays();
     }
 
     ngOnInit(): void {
+
     }
 
     getParsedDate(date: Date): string {
@@ -46,17 +40,15 @@ export class RegistrationTimeComponent implements OnInit {
     }
 
     timeSlotSelected(): void {
-        if (!this.selectedDate || !this.selectedTime) {
-            return;
-        }
-
-        this.dataProvider.data.selectedTimeslot = this.selectedDate + this.selectedTime; // TODO: parse it ... to ISO date
-        // this.selectedDate.setUTCHours(+this.selectedTime.split(':')[0], +this.selectedTime.split(':')[1]);
-        // this.communication.selectedDate = this.selectedDate;
+        console.log(this.dataProvider.availableTimeSlots);
     }
 
     // ToDo: next button should call pdf creation and return number of "Laufzettel"
     submit(): void {
         this.router.navigate(['registration/confirmation']);
+    }
+
+    timeDayChanged(): void {
+        this.dataProvider.loadTimeSlots();
     }
 }

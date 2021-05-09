@@ -11,10 +11,9 @@ export class Screeningstation {
     district: string;
     maxUserPerTimeslot: number;
     openingHours: string;
-    timeSlots: TimeSlot[];
 
     constructor(name: string, postalCode: number, city: string, address: string, district: string,
-                maxUserPerTimeslot: number, openingHours: string, timeSlots: TimeSlot[]) {
+                maxUserPerTimeslot: number, openingHours: string) {
 
         this.name = name;
         this.postalCode = postalCode;
@@ -23,7 +22,6 @@ export class Screeningstation {
         this.district = district;
         this.maxUserPerTimeslot = maxUserPerTimeslot;
         this.openingHours = openingHours;
-        this.timeSlots = timeSlots;
     }
 
 }

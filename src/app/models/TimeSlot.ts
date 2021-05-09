@@ -1,10 +1,15 @@
 export class TimeSlot {
-    date: string;
+
+    id: string;
+    time: string;
+
     maxUserAmount: number;
     userAmount: number;
 
-    constructor(date: string, maxUserAmount: number, userAmount: number) {
-        this.date = date;
+
+    constructor(id: string, time: string, maxUserAmount: number, userAmount: number) {
+        this.id = id;
+        this.time = time;
         this.maxUserAmount = maxUserAmount;
         this.userAmount = userAmount;
     }
