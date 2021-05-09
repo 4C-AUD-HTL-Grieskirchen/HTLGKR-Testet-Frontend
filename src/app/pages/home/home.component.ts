@@ -108,7 +108,6 @@ export class HomeComponent implements OnInit {
 
         } else {
             this.registrationForm.markAllAsTouched();
-            // TODO: mark terms as unchecked
             this.agreedTerms.setErrors(Validators.required);
         }
     }
