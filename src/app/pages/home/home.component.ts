@@ -11,14 +11,11 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class HomeComponent implements OnInit {
 
     registrationForm: FormGroup;
-    terms: boolean;
     genders: string[] = ['Weiblich', 'Männlich', 'Divers'];
-    socialNumDate: string | undefined;
 
     constructor(private dataProvider: RegistrationDataProviderService, private router: Router) {
-        this.registrationForm = new FormGroup({});
         this.dataProvider.data = dataProvider.data;
-        this.terms = false;
+        this.registrationForm = new FormGroup({});
     }
 
     get firstname(): FormControl {
@@ -88,7 +85,7 @@ export class HomeComponent implements OnInit {
             birthdate: new FormControl(this.dataProvider.data.birthdate, Validators.required),
             gender: new FormControl(this.dataProvider.data.gender, Validators.required),
             social: new FormControl(this.dataProvider.data.social, Validators.required),
-            socialDate: new FormControl(this.socialNumDate),
+            socialDate: new FormControl(undefined),
             street: new FormControl(this.dataProvider.data.street, Validators.required),
             house: new FormControl(this.dataProvider.data.house, Validators.required),
             door: new FormControl(this.dataProvider.data.door),
@@ -97,7 +94,7 @@ export class HomeComponent implements OnInit {
             location: new FormControl(this.dataProvider.data.location, Validators.required),
             email: new FormControl(this.dataProvider.data.email, Validators.required),
             isTeacher: new FormControl(this.dataProvider.data.isTeacher),
-            agreedTerms: new FormControl(this.terms, Validators.required)
+            agreedTerms: new FormControl(false, Validators.required)
         });
     }
 
@@ -105,10 +102,14 @@ export class HomeComponent implements OnInit {
         console.log(this.dataProvider.data);
 
         if (this.registrationForm.valid && this.agreedTerms.value) {
+            this.social.setValue(`${this.social.value}${this.socialDate.value}`);
+            // TODO: store data in firebase
             this.router.navigate(['registration']);
 
         } else {
             this.registrationForm.markAllAsTouched();
+            // TODO: mark terms as unchecked
+            this.agreedTerms.setErrors(Validators.required);
         }
     }
 
