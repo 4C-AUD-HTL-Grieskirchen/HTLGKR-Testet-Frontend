@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
     genders: string[] = ['Weiblich', 'Männlich', 'Divers'];
 
     constructor(private dataProvider: RegistrationDataProviderService, private router: Router) {
-        this.dataProvider.data = dataProvider.data;
         this.registrationForm = new FormGroup({});
     }
 
@@ -79,6 +78,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
         this.registrationForm = new FormGroup({
             firstname: new FormControl(this.dataProvider.data.firstname, Validators.required),
             lastname: new FormControl(this.dataProvider.data.lastname, Validators.required),
@@ -99,6 +99,7 @@ export class HomeComponent implements OnInit {
     }
 
     submit(): void {
+
         if (this.registrationForm.valid && this.agreedTerms.value) {
             this.social.setValue(`${this.social.value}${this.socialDate.value}`);
             this.router.navigate(['registration']);
@@ -107,6 +108,7 @@ export class HomeComponent implements OnInit {
             this.registrationForm.markAllAsTouched();
             this.agreedTerms.setErrors(Validators.required);
         }
+        Object.assign(this.dataProvider.data, this.registrationForm.value);
     }
 
     birthdateBlur(): void {

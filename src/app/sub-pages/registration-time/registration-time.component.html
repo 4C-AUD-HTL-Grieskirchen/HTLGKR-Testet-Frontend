@@ -6,7 +6,7 @@
 </p-dropdown>
 
 
-<p-listbox (onChange)="timeSlotSelected()" [(ngModel)]="dataProvider.data.selectedTimeslot" [options]="dataProvider.availableTimeSlots" optionLabel="time"></p-listbox>
+<p-listbox (onChange)="timeSlotSelected()" [(ngModel)]="dataProvider.selectedTimeSlot" [options]="dataProvider.availableTimeSlots" optionLabel="time"></p-listbox>
 
 <div class="form-row stepNavigation">
     <p-button (onClick)="submit()" label="Buchung abschließen"></p-button>

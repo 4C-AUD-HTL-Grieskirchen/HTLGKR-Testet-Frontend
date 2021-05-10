@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {RegistrationData} from '../models/RegistrationData';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Screeningstation} from '../models/Screeningstation';
-import {TimeDay} from "../models/TimeDay";
-import {TimeSlot} from "../models/TimeSlot";
+import {TimeDay} from '../models/TimeDay';
+import {TimeSlot} from '../models/TimeSlot';
 
 @Injectable({
     providedIn: 'root'
@@ -13,6 +13,7 @@ export class RegistrationDataProviderService {
     public selectedScreeningStation: Screeningstation | undefined;
 
     public selectedTimeDay: TimeDay | undefined;
+    public selectedTimeSlot: TimeSlot | undefined;
 
     public availableScreeningStations: Screeningstation[];
 
@@ -32,7 +33,10 @@ export class RegistrationDataProviderService {
 
     public submitRegistration(): void {
 
-        this.fire.firestore.collection('registrations').add(this.data).then((r) => {
+        console.log(this.data);
+
+
+        this.fire.firestore.collection('Registrations').add(Object.assign({}, this.data)).then((r) => {
 
         });
     }

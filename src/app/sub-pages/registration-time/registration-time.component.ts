@@ -45,6 +45,7 @@ export class RegistrationTimeComponent implements OnInit {
 
     // ToDo: next button should call pdf creation and return number of "Laufzettel"
     submit(): void {
+        this.dataProvider.submitRegistration();
         this.router.navigate(['registration/confirmation']);
     }
 

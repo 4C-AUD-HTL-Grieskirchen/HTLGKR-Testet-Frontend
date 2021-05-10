@@ -19,6 +19,7 @@ export class RegistrationStationComponent implements OnInit {
     constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
 
 
+
         this.screeningStations = dataProvider.availableScreeningStations;
 
         const distinct = new Set<string>();
