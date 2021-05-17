@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
-
+import {Message} from 'primeng//api';
+import {MessageService} from 'primeng/api';
 
 @Component({
     selector: 'app-registration-start',
@@ -10,11 +11,9 @@ import {RegistrationDataProviderService} from '../../services/registration-data-
 })
 export class RegistrationStartComponent implements OnInit {
 
-
+    inputBirthday: string | undefined;
 
     constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
-
-
     }
 
     ngOnInit(): void {
@@ -26,6 +25,12 @@ export class RegistrationStartComponent implements OnInit {
     }
 
     submit(): void {
-        this.router.navigate(['registration/station']);
+
+        if (this.inputBirthday && this.inputBirthday === this.dataProvider.data.birthdate){
+            this.router.navigate(['registration/station']);
+        }
+        else {
+            alert('Wrong birthday');
+        }
     }
 }
