@@ -75,8 +75,6 @@ export class RegistrationDataProviderService {
                     this.availableTimeDays.push(timeDay);
                 });
         });
-
-        this.availableTimeDays.sort((a, b) => a.date > b.date ? 1 : 0);
     }
 
     loadTimeSlots(): void {

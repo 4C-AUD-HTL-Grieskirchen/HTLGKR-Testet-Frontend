@@ -10,7 +10,6 @@ import {RegistrationDataProviderService} from '../../services/registration-data-
 export class RegistrationTimeComponent implements OnInit {
 
     constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
-        this.timeSlotSelected();
         dataProvider.loadTimeDays();
     }
 
@@ -32,10 +31,6 @@ export class RegistrationTimeComponent implements OnInit {
         returnString += actualDate.getUTCFullYear();
 
         return returnString;
-    }
-
-    timeSlotSelected(): void {
-        console.log(this.dataProvider.availableTimeSlots);
     }
 
     // ToDo: next button should call pdf creation and return number of "Laufzettel"

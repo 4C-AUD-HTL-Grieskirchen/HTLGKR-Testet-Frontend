@@ -4,8 +4,8 @@
 <p-dropdown [options]="dataProvider.availableTimeDays" optionLabel="date" [(ngModel)]="dataProvider.selectedTimeDay" (onChange)="timeDayChanged()">
 </p-dropdown>
 
-
-<p-listbox (onChange)="timeSlotSelected()" [(ngModel)]="dataProvider.selectedTimeSlot" [options]="dataProvider.availableTimeSlots" optionLabel="time"></p-listbox>
+<p-listbox *ngIf="dataProvider.selectedTimeDay" [(ngModel)]="dataProvider.selectedTimeSlot" [options]="dataProvider.availableTimeSlots" optionLabel="time"
+           [listStyle]="{'max-height':'40vh'}"></p-listbox>
 
 <div class="form-row stepNavigation">
     <p-button (onClick)="submit()" label="Buchung abschließen"></p-button>
