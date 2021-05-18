@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
             lastname: new FormControl(this.dataProvider.data.lastname, Validators.required),
             birthdate: new FormControl(this.dataProvider.data.birthdate, Validators.required),
             gender: new FormControl(this.dataProvider.data.gender, Validators.required),
-            social: new FormControl(this.dataProvider.data.social, Validators.required),
+            social: new FormControl(this.dataProvider.data.social),
             socialDate: new FormControl(undefined),
             street: new FormControl(this.dataProvider.data.street, Validators.required),
             house: new FormControl(this.dataProvider.data.house, Validators.required),

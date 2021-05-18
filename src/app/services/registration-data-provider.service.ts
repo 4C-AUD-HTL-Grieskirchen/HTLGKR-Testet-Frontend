@@ -76,6 +76,7 @@ export class RegistrationDataProviderService {
                 });
         });
 
+        this.availableTimeDays.sort((a, b) => a.date > b.date ? 1 : 0);
     }
 
     loadTimeSlots(): void {

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
-import {dashCaseToCamelCase} from "@angular/compiler/src/util";
 
 @Component({
     selector: 'app-registration-time',
@@ -9,9 +8,6 @@ import {dashCaseToCamelCase} from "@angular/compiler/src/util";
     styleUrls: ['./registration-time.component.css']
 })
 export class RegistrationTimeComponent implements OnInit {
-
-
-
 
     constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
         this.timeSlotSelected();
@@ -22,21 +18,20 @@ export class RegistrationTimeComponent implements OnInit {
 
     }
 
-    getParsedDate(date: Date): string {
+    getParsedDate(date: Date | string): string {
         let returnString = '';
+        let actualDate;
 
-        const dayOfWeek = date.getDay();
+        actualDate = new Date(date);
+
+        const dayOfWeek = actualDate.getDay();
         returnString += isNaN(dayOfWeek) ? null : ['Sonntag, ', 'Montag, ', 'Dienstag, ', 'Mittwoch, ', 'Donnerstag, ', 'Freitag, ', 'Samstag, '][dayOfWeek];
 
-        returnString += date.getUTCDate() + '.';
-        returnString += date.getUTCMonth() + '.';
-        returnString += date.getUTCFullYear();
+        returnString += actualDate.getUTCDate() + '.';
+        returnString += actualDate.getUTCMonth() + '.';
+        returnString += actualDate.getUTCFullYear();
 
         return returnString;
-    }
-
-    getTimesFromSelectedDate(): string[] {
-        return []; // ToDo: get from db with selectedDate
     }
 
     timeSlotSelected(): void {
@@ -45,6 +40,11 @@ export class RegistrationTimeComponent implements OnInit {
 
     // ToDo: next button should call pdf creation and return number of "Laufzettel"
     submit(): void {
+        if (!this.dataProvider.selectedTimeSlot || !this.dataProvider.selectedTimeDay){
+            alert('Please select a timeslot');
+            return;
+        }
+
         this.dataProvider.submitRegistration();
         this.router.navigate(['registration/confirmation']);
     }

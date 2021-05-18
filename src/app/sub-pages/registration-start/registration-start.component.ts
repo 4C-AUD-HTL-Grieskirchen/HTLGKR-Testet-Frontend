@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
-import {Message} from 'primeng//api';
-import {MessageService} from 'primeng/api';
 
 @Component({
     selector: 'app-registration-start',
@@ -17,11 +15,7 @@ export class RegistrationStartComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log(this.dataProvider.data.birthdate);
-    }
 
-    setSelectedDate(sDate: string): void {
-        // this.communication.userBirthday = new Date(Date.parse(sDate));
     }
 
     submit(): void {

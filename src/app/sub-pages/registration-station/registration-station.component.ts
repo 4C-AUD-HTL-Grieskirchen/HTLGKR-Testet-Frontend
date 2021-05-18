@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Screeningstation} from '../../models/Screeningstation';
 import {Router} from '@angular/router';
-import {AngularFirestore} from '@angular/fire/firestore';
 import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
 
 
@@ -40,6 +39,10 @@ export class RegistrationStationComponent implements OnInit {
     }
 
     submit(): void {
+        if (!this.dataProvider.selectedScreeningStation) {
+            alert('No Screeningstation selected');
+            return;
+        }
         this.router.navigate(['registration/time']);
     }
 }
