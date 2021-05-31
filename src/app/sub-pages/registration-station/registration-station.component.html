@@ -1,0 +1,22 @@
+<h2>Screeningstation auswählen</h2>
+<p>Bitte wählen Sie eine der verfügbaren Screeningstationen aus</p>
+
+<label for="ddDistricts">Bezirk:</label>
+
+<p-dropdown [(ngModel)]="selectedDistrict" [options]="districts" (selectionchange)="districtSelected()" id="ddDistricts"></p-dropdown>
+
+<p-listbox [(ngModel)]="dataProvider.selectedScreeningStation" [options]="screeningStations" optionLabel="name">
+    <ng-template let-facility pTemplate="item">
+        <app-screeningstation-item [screeningStation]="facility"></app-screeningstation-item>
+    </ng-template>
+</p-listbox>
+
+<div *ngIf="dataProvider.selectedScreeningStation">
+    <h3>Gewählte Screeningstation</h3>
+
+    <app-screeningstation-item [screeningStation]="dataProvider.selectedScreeningStation"></app-screeningstation-item>
+</div>
+
+<div class="form-row stepNavigation">
+    <p-button (onClick)="submit()" label="Weiter"></p-button>
+</div>
