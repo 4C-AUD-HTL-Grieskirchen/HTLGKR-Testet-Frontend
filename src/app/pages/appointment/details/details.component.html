@@ -1,0 +1,36 @@
+<div class="container">
+
+    <h1>Ihr COVID19 Screening-Termin</h1>
+    <div class="barcode">
+        <span id="barcode"></span>
+        <h3>{{id}}</h3>
+        <p>Fortlaufende Laufzettel-Nummer</p>
+    </div>
+
+    <div class="location">
+        <div>
+            <i class="pi pi-map-marker"></i>
+        </div>
+        <div>
+            <p>{{stationName}}</p>
+            <p>{{stationPostal}} {{stationCity}}</p>
+            <p>{{stationAddress}}</p>
+        </div>
+    </div>
+
+    <div class="date">
+        <div>
+            <i class="pi pi-calendar"></i>
+        </div>
+        <div>
+            <p>{{date}}</p>
+            <p>{{time}}</p>
+        </div>
+    </div>
+
+    <p class="highlight">Bitte bringen Sie einen amtlichen Lichtbildausweis zur Testung mit.</p>
+
+    <p-button (click)="onCancelClick()">Termin stornieren</p-button>
+    <p-button>Laufzettel herunterladen</p-button>
+
+</div>
