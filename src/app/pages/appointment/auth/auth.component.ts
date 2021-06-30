@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class AuthComponent implements OnInit {
 
-    public value: Date;
+    public dateInput: string;
 
     private id = '';
 
@@ -18,7 +18,7 @@ export class AuthComponent implements OnInit {
         private router: Router,
         private route: ActivatedRoute
     ) {
-        this.value = new Date();
+        this.dateInput = '';
     }
 
     ngOnInit(): void {
@@ -27,8 +27,9 @@ export class AuthComponent implements OnInit {
 
     onConfirmClick(): void {
         this.firestore.collection('Registrations').doc(this.id).get().subscribe(doc => {
-            const dateIso = this.value.toISOString();
-            const data = doc.data();
+            const data: any = doc.data();
+            const birthdate = this.dateInput.split('.').reverse().join('-');
+            const birthdateIso = birthdate + 'T00:00:00.000Z';
 
             if (data === undefined) {
                 console.log('File not found!');
@@ -37,12 +38,13 @@ export class AuthComponent implements OnInit {
                 return;
             }
 
-            // @ts-ignore
-            if (data.birthdate === dateIso) {
+            if (data.birthdate.split('T')[0] === birthdate) {
                 console.log('Redirecting...');
-                localStorage.setItem('auth-birth', dateIso);
+                localStorage.setItem('auth-birth', birthdateIso);
                 this.router.navigateByUrl('/appointment/details/' + this.id);
             } else {
+                console.log('Expected: ', data.birthdate.split('T')[0]);
+                console.log('Selected: ', birthdate);
                 console.log('Birthdate invalid!');
                 alert('Das angegebene Geburtsdatum stimmt nicht mit unseren Daten überein!');
             }

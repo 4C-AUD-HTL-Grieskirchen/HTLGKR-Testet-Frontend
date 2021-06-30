@@ -5,7 +5,7 @@
     <p>Bitte geben Sie Ihr Geburtsdatum ein.</p>
 
     <p class="label">Geburtsdatum</p>
-    <p-calendar [(ngModel)]="value"></p-calendar>
+    <p-inputMask [(ngModel)]="dateInput" mask="99.99.9999" placeholder="TT.MM.JJJJ"></p-inputMask>
 
     <p-button (click)="onConfirmClick()">Bestätigen</p-button>
 
