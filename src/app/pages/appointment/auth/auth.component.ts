@@ -29,7 +29,6 @@ export class AuthComponent implements OnInit {
         this.firestore.collection('Registrations').doc(this.id).get().subscribe(doc => {
             const data: any = doc.data();
             const birthdate = this.dateInput.split('.').reverse().join('-');
-            const birthdateIso = birthdate + 'T00:00:00.000Z';
 
             if (data === undefined) {
                 console.log('File not found!');
@@ -40,7 +39,7 @@ export class AuthComponent implements OnInit {
 
             if (data.birthdate.split('T')[0] === birthdate) {
                 console.log('Redirecting...');
-                localStorage.setItem('auth-birth', birthdateIso);
+                localStorage.setItem('auth-birth', birthdate);
                 this.router.navigateByUrl('/appointment/details/' + this.id);
             } else {
                 console.log('Expected: ', data.birthdate.split('T')[0]);
