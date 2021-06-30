@@ -107,6 +107,7 @@ export class HomeComponent implements OnInit {
             this.social.setValue(`${this.social.value}${this.socialDate.value}`);
             this.registrationForm.removeControl('socialDate');
             this.registrationForm.removeControl('agreedTerms');
+            this.birthdate.setValue(this.birthdate.value.split('.').reverse().join('-'));
 
             if (typeof (this.gender.value) === 'number') {
                 this.gender.setValue(this.gender.value);
@@ -114,14 +115,9 @@ export class HomeComponent implements OnInit {
                 this.gender.setValue(this.gender.value.id);
             }
 
-            // TODO: add necessary values for email-service
-
-
             Object.assign(this.dataProvider.data, this.registrationForm.value);
-
             this.dataProvider.submitRegistration();
             this.router.navigate(['email-sent']);
-
         } else {
             this.registrationForm.markAllAsTouched();
 
