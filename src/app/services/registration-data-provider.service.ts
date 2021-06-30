@@ -41,6 +41,15 @@ export class RegistrationDataProviderService {
         });
     }
 
+    public getRegistration(id: string): Promise<RegistrationData> {
+
+        return new Promise<RegistrationData>(resolve => {
+            this.fire.firestore.doc('Registrations/' + id).get().then(value => {
+                this.data = value.data() as RegistrationData;
+                resolve(this.data);
+            });
+        });
+    }
 
     loadScreeningStations(): void {
         this.fire.firestore.collection('ScreeningStations').get().then(value => {

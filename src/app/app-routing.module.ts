@@ -17,7 +17,7 @@ const routes: Routes = [
     {path: '', component: HomeComponent},
     {
         path: 'registration', component: RegistrationStepsComponent, children: [
-            {path: 'start', component: RegistrationStartComponent},
+            {path: 'start/:id', component: RegistrationStartComponent},
             {path: 'station', component: RegistrationStationComponent},
             {path: 'time', component: RegistrationTimeComponent},
             {path: 'confirmation', component: RegistrationConfirmationComponent},
