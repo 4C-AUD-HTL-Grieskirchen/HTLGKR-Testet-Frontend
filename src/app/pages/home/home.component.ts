@@ -120,7 +120,7 @@ export class HomeComponent implements OnInit {
             Object.assign(this.dataProvider.data, this.registrationForm.value);
 
             this.dataProvider.submitRegistration();
-            this.router.navigate(['registration']);
+            this.router.navigate(['email-sent']);
 
         } else {
             this.registrationForm.markAllAsTouched();

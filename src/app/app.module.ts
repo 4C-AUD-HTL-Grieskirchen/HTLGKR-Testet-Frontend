@@ -33,6 +33,7 @@ import { AuthComponent } from './pages/appointment/auth/auth.component';
 import { DetailsComponent } from './pages/appointment/details/details.component';
 import { CancelledComponent } from './pages/appointment/cancelled/cancelled.component';
 import {CalendarModule} from "primeng/calendar";
+import { EmailSentConfirmationComponent } from './pages/email-sent-confirmation/email-sent-confirmation.component';
 
 @NgModule({
     declarations: [
@@ -50,7 +51,8 @@ import {CalendarModule} from "primeng/calendar";
         ScreeningstationItemComponent,
         AuthComponent,
         DetailsComponent,
-        CancelledComponent
+        CancelledComponent,
+        EmailSentConfirmationComponent
     ],
     imports: [
         BrowserModule,
