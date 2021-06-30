@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-registration-steps',
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class RegistrationStepsComponent implements OnInit {
 
     steps: MenuItem[];
-    constructor(private router: Router) {
+    constructor(private router: Router, private route: ActivatedRoute) {
         this.steps = [
             {
                 label: 'Step 1',
@@ -43,7 +43,9 @@ export class RegistrationStepsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.router.navigate(['registration/start']);
+        if (this.route.children.length === 0) {
+            this.router.navigate(['']);
+        }
     }
 
 }
