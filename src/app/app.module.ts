@@ -29,6 +29,10 @@ import {RegistrationConfirmationComponent} from './sub-pages/registration-confir
 
 import {ListboxModule} from 'primeng/listbox';
 import { ScreeningstationItemComponent } from './shared/screeningstation-item/screeningstation-item.component';
+import { AuthComponent } from './pages/appointment/auth/auth.component';
+import { DetailsComponent } from './pages/appointment/details/details.component';
+import { CancelledComponent } from './pages/appointment/cancelled/cancelled.component';
+import {CalendarModule} from "primeng/calendar";
 
 @NgModule({
     declarations: [
@@ -43,7 +47,10 @@ import { ScreeningstationItemComponent } from './shared/screeningstation-item/sc
         RegistrationStationComponent,
         RegistrationTimeComponent,
         RegistrationConfirmationComponent,
-        ScreeningstationItemComponent
+        ScreeningstationItemComponent,
+        AuthComponent,
+        DetailsComponent,
+        CancelledComponent
     ],
     imports: [
         BrowserModule,
@@ -67,6 +74,7 @@ import { ScreeningstationItemComponent } from './shared/screeningstation-item/sc
         DropdownModule,
         FontAwesomeModule,
         InputTextModule,
+        CalendarModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

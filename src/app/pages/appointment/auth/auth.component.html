@@ -1,0 +1,12 @@
+<div class="container">
+
+    <h1>Ihr COVID19 Screening-Termin</h1>
+    <p>Zur Sicherheit Ihrer persönlichen Daten ist es notwendig, Sie eindeutig zu identifizieren</p>
+    <p>Bitte geben Sie Ihr Geburtsdatum ein.</p>
+
+    <p class="label">Geburtsdatum</p>
+    <p-calendar [(ngModel)]="value"></p-calendar>
+
+    <p-button (click)="onConfirmClick()">Bestätigen</p-button>
+
+</div>
