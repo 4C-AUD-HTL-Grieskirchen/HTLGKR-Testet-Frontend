@@ -11,6 +11,7 @@ import {RegistrationConfirmationComponent} from './sub-pages/registration-confir
 import {AuthComponent} from './pages/appointment/auth/auth.component';
 import {DetailsComponent} from './pages/appointment/details/details.component';
 import {CancelledComponent} from './pages/appointment/cancelled/cancelled.component';
+import {EmailSentConfirmationComponent} from './pages/email-sent-confirmation/email-sent-confirmation.component';
 
 const routes: Routes = [
 
@@ -33,6 +34,7 @@ const routes: Routes = [
     },
 
     {path: 'impressum', component: ImpressumComponent},
+    {path: 'email-sent', component: EmailSentConfirmationComponent},
     {path: '**', redirectTo: ''}
 ];
 
