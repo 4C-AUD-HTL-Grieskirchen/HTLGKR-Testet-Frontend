@@ -11,7 +11,11 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class HomeComponent implements OnInit {
 
     registrationForm: FormGroup;
-    genders: string[] = ['Weiblich', 'Männlich', 'Divers'];
+    genders: object[] = [
+        {id: 0, value: 'Divers'},
+        {id: 1, value: 'Weiblich'},
+        {id: 2, value: 'Männlich'},
+    ];
 
     constructor(private dataProvider: RegistrationDataProviderService, private router: Router) {
         this.registrationForm = new FormGroup({});
@@ -78,7 +82,6 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
         this.registrationForm = new FormGroup({
             firstname: new FormControl(this.dataProvider.data.firstname, Validators.required),
             lastname: new FormControl(this.dataProvider.data.lastname, Validators.required),
@@ -99,16 +102,33 @@ export class HomeComponent implements OnInit {
     }
 
     submit(): void {
-
         if (this.registrationForm.valid && this.agreedTerms.value) {
+
             this.social.setValue(`${this.social.value}${this.socialDate.value}`);
+            this.registrationForm.removeControl('socialDate');
+            this.registrationForm.removeControl('agreedTerms');
+
+            if (typeof (this.gender.value) === 'number') {
+                this.gender.setValue(this.gender.value);
+            } else {
+                this.gender.setValue(this.gender.value.id);
+            }
+
+            // TODO: add necessary values for email-service
+
+
+            Object.assign(this.dataProvider.data, this.registrationForm.value);
+
+            this.dataProvider.submitRegistration();
             this.router.navigate(['registration']);
 
         } else {
             this.registrationForm.markAllAsTouched();
-            this.agreedTerms.setErrors(Validators.required);
+
+            if (!this.agreedTerms.value) {
+                this.agreedTerms.setErrors(Validators.required);
+            }
         }
-        Object.assign(this.dataProvider.data, this.registrationForm.value);
     }
 
     birthdateBlur(): void {
@@ -116,7 +136,8 @@ export class HomeComponent implements OnInit {
             const date = Array.from(this.birthdate.value);
             date.splice(2, 1);
             date.splice(4, 3);
-            this.socialDate.setValue(date);
+
+            this.socialDate.setValue(date.toString().split(',').join(''));
         }
     }
 }

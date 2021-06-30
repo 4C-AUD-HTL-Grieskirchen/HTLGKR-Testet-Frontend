@@ -1,4 +1,3 @@
-
 export class RegistrationData {
 
     isTeacher: boolean;
@@ -27,6 +26,6 @@ export class RegistrationData {
 
     constructor() {
         this.isTeacher = false;
-        this.gender = 2;
+        this.gender = 0;
     }
 }
