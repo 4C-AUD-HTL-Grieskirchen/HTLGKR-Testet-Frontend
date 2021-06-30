@@ -24,8 +24,31 @@ export class RegistrationData {
     selectedTimeslot: string | undefined;
     selectedFacility: string | undefined;
 
+    isCanceled: boolean;
+
+    registrationPdfCreated: boolean;
+    resultPdfCreated: boolean
+
+    emailSent: boolean;
+    appointmentEmailSent: boolean;
+    cancelEmailSent: boolean;
+
+    barCodeScanned: boolean;
+    result: string;
+    barcodelocation: string;
+
     constructor() {
         this.isTeacher = false;
         this.gender = 0;
+
+        this.isCanceled = false;
+        this.registrationPdfCreated = false;
+        this.resultPdfCreated = false;
+        this.emailSent = false;
+        this.appointmentEmailSent = false;
+        this.cancelEmailSent = false;
+        this.barCodeScanned = false;
+        this.result = 'unknown';
+        this.barcodelocation = '';
     }
 }
