@@ -33,13 +33,11 @@ export class RegistrationTimeComponent implements OnInit {
         return returnString;
     }
 
-    // ToDo: next button should call pdf creation and return number of "Laufzettel"
     submit(): void {
         if (!this.dataProvider.selectedTimeSlot || !this.dataProvider.selectedTimeDay){
             alert('Please select a timeslot');
             return;
         }
-
         this.dataProvider.submitRegistration();
         this.router.navigate(['registration/confirmation']);
     }

@@ -1,3 +1,6 @@
+import firebase from 'firebase';
+import DocumentReference = firebase.firestore.DocumentReference;
+
 export class RegistrationData {
 
     isTeacher: boolean;
@@ -21,8 +24,9 @@ export class RegistrationData {
     pdfUri: string | undefined;
     pdfNumber: number | undefined;
 
+    selectedTimeDay: string | undefined;
     selectedTimeslot: string | undefined;
-    selectedFacility: string | undefined;
+    selectedFacility: DocumentReference | undefined;
 
     isCanceled: boolean;
 
