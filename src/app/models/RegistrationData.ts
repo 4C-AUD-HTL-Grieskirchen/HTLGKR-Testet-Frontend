@@ -35,7 +35,6 @@ export class RegistrationData {
 
     barCodeScanned: boolean;
     result: string;
-    barcodelocation: string;
 
     constructor() {
         this.isTeacher = false;
@@ -49,6 +48,5 @@ export class RegistrationData {
         this.cancelEmailSent = false;
         this.barCodeScanned = false;
         this.result = 'unknown';
-        this.barcodelocation = '';
     }
 }
