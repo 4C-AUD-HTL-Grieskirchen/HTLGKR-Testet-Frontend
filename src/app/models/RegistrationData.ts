@@ -27,7 +27,7 @@ export class RegistrationData {
     isCanceled: boolean;
 
     registrationPdfCreated: boolean;
-    resultPdfCreated: boolean
+    resultPdfCreated: boolean;
 
     emailSent: boolean;
     appointmentEmailSent: boolean;
