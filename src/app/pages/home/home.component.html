@@ -33,7 +33,12 @@
             <label class=" required-field" for="Geb">Geburtsdatum</label>
 
             <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)" class="alert alert-danger">
-                Bitte geben Sie Ihr Geburtsdatum ein.
+                <div *ngIf="birthdate.errors?.required">
+                    Bitte geben Sie Ihr Geburtsdatum ein.
+                </div>
+                <div *ngIf="birthdate.errors?.forbiddenDate">
+                    Bitte geben Sie ein gültiges Geburtsdatum ein.
+                </div>
             </div>
         </div>
 
