@@ -27,6 +27,8 @@ export class RegistrationStartComponent implements OnInit {
                 return;
             }
         });
+
+        this.dataProvider.persistData();
     }
 
     submit(): void {
@@ -34,6 +36,7 @@ export class RegistrationStartComponent implements OnInit {
         const date = this.inputBirthday?.split('.').reverse().join('-');
 
         if (this.inputBirthday && date === this.dataProvider.data.birthdate ){
+            this.dataProvider.persistData();
             this.router.navigate(['registration/station']);
         }
         else {

@@ -10,6 +10,7 @@ import {RegistrationDataProviderService} from '../../services/registration-data-
 export class RegistrationTimeComponent implements OnInit {
 
     constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
+        dataProvider.restoreData();
         dataProvider.loadTimeDays();
     }
 
@@ -38,6 +39,7 @@ export class RegistrationTimeComponent implements OnInit {
             alert('Please select a timeslot');
             return;
         }
+        this.dataProvider.persistData();
         this.dataProvider.submitRegistration();
         this.router.navigate(['registration/confirmation']);
     }

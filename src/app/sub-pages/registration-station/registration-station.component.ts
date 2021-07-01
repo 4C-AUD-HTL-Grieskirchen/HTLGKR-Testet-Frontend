@@ -11,23 +11,24 @@ import {RegistrationDataProviderService} from '../../services/registration-data-
 })
 export class RegistrationStationComponent implements OnInit {
 
-    districts: string[];
-    screeningStations: Screeningstation[];
+    districts: string[] = [];
+    screeningStations: Screeningstation[] = [];
     selectedDistrict = '';
 
     constructor(public dataProvider: RegistrationDataProviderService, private router: Router) {
 
+        this.dataProvider.restoreData();
+        this.dataProvider.loadScreeningStations().then(value => {
+            this.screeningStations = dataProvider.availableScreeningStations;
 
+            const distinct = new Set<string>();
 
-        this.screeningStations = dataProvider.availableScreeningStations;
+            for (const station of this.screeningStations) {
+                distinct.add(station.district);
+            }
 
-        const distinct = new Set<string>();
-
-        for (const station of this.screeningStations) {
-            distinct.add(station.district);
-        }
-
-        this.districts = [...distinct];
+            this.districts = [...distinct];
+        });
 
     }
 
@@ -43,6 +44,7 @@ export class RegistrationStationComponent implements OnInit {
             alert('No Screeningstation selected');
             return;
         }
+        this.dataProvider.persistData();
         this.router.navigate(['registration/time']);
     }
 }
