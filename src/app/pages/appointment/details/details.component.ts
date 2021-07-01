@@ -3,6 +3,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {ActivatedRoute, Router} from '@angular/router';
 import firebase from 'firebase';
 import Reference = firebase.storage.Reference;
+import DocumentReference = firebase.firestore.DocumentReference;
 
 @Component({
     selector: 'app-details',
@@ -55,10 +56,9 @@ export class DetailsComponent implements OnInit {
                     return;
                 }
 
-                this.firestore.collection('ScreeningStations')
-                    .doc(data.selectedFacility)
+                (data.selectedFacility as DocumentReference)
                     .get()
-                    .subscribe(station => {
+                    .then(station => {
                         const stationData: any = station.data();
                         this.stationName = stationData.name;
                         this.stationAddress = stationData.address;
@@ -66,24 +66,16 @@ export class DetailsComponent implements OnInit {
                         this.stationPostal = stationData.postalCode;
                     });
 
-                this.firestore.collection('ScreeningStations')
-                    .doc(data.selectedFacility)
-                    .collection('timeDays')
-                    .doc(data.selectedTimeDay)
+                (data.selectedTimeDay as DocumentReference)
                     .get()
-                    .subscribe(day => {
+                    .then(day => {
                         const dayData: any = day.data();
                         this.date = dayData.date;
                     });
 
-                this.firestore.collection('ScreeningStations')
-                    .doc(data.selectedFacility)
-                    .collection('timeDays')
-                    .doc(data.selectedTimeDay)
-                    .collection('slots')
-                    .doc(data.selectedTimeSlot)
+                (data.selectedTimeslot as DocumentReference)
                     .get()
-                    .subscribe(slot => {
+                    .then(slot => {
                         const slotData: any = slot.data();
                         this.time = slotData.time;
                     });
