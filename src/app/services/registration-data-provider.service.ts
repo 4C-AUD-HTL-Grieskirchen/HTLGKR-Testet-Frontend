@@ -144,7 +144,6 @@ export class RegistrationDataProviderService {
         };
 
         localStorage.setItem('registration/data', JSON.stringify(data));
-
     }
 
     public restoreData(): void {
@@ -156,8 +155,6 @@ export class RegistrationDataProviderService {
         if (stringData === null) { return; }
 
         const data = JSON.parse(stringData);
-
-        console.log("Restored ", data);
 
         Object.assign(this, data);
     }
