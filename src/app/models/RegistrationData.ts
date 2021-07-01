@@ -35,6 +35,7 @@ export class RegistrationData {
 
     emailSent: boolean;
     appointmentEmailSent: boolean;
+    resultEmailSent: boolean;
     cancelEmailSent: boolean;
 
     barCodeScanned: boolean;
@@ -49,6 +50,7 @@ export class RegistrationData {
         this.resultPdfCreated = false;
         this.emailSent = false;
         this.appointmentEmailSent = false;
+        this.resultEmailSent = false;
         this.cancelEmailSent = false;
         this.barCodeScanned = false;
         this.result = 'unknown';
