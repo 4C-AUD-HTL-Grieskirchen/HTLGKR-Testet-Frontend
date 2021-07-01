@@ -1,9 +1,8 @@
 <h2>Anmeldung zum Covid-19 Schnelltest</h2>
 <p>Zur Sicherheit Ihrer persönlichen Datten ist es notwendig, Sie eindeutig zu identifizieren.</p>
 <p>Bitte geben Sie Ihr Geburtsdatum ein.</p>
-<label for="birthdayInput">Geburtsdatum</label>
 <p-inputMask [(ngModel)]="inputBirthday" id="birthdayInput" mask="99.99.9999" placeholder="TT.MM.JJJJ"></p-inputMask>
 
-<div class="form-row stepNavigation">
+<div class="form-row stepNavigation mt-4 mb-5">
     <p-button (onClick)="submit()" label="Bestätigen"></p-button>
 </div>
