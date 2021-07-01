@@ -96,13 +96,14 @@ export class RegistrationDataProviderService {
 
         const stationId = this.selectedScreeningStation.id;
 
-        this.fire.firestore.collection(`ScreeningStations/${stationId}/timeDays`).get().then(value => {
+        this.fire.firestore.collection(`ScreeningStations/${stationId}/timeDays`).orderBy('date').get().then(value => {
 
             this.availableTimeDays = [],
 
                 value.forEach(result => {
                     const timeDay = result.data() as TimeDay;
                     timeDay.id = result.id;
+                    timeDay.date = timeDay.date.slice(0, 10).split('-').reverse().join('.');
 
                     this.availableTimeDays.push(timeDay);
                 });
@@ -122,7 +123,7 @@ export class RegistrationDataProviderService {
         const timeDayId = this.selectedTimeDay.id;
         const path = `ScreeningStations/${stationId}/timeDays/${timeDayId}/slots`;
 
-        this.fire.firestore.collection(path).get().then(value => {
+        this.fire.firestore.collection(path).orderBy('time').get().then(value => {
             this.availableTimeSlots = [];
 
             value.forEach(result => {
@@ -148,11 +149,15 @@ export class RegistrationDataProviderService {
 
     public restoreData(): void {
 
-        if (this.currentDocId !== '') { return; }
+        if (this.currentDocId !== '') {
+            return;
+        }
 
         const stringData = localStorage.getItem('registration/data');
 
-        if (stringData === null) { return; }
+        if (stringData === null) {
+            return;
+        }
 
         const data = JSON.parse(stringData);
 
