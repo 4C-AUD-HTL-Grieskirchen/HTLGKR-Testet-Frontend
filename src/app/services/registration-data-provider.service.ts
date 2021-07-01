@@ -38,12 +38,6 @@ export class RegistrationDataProviderService {
     }
 
     public submitRegistration(): void {
-        console.log(this);
-        console.log(this.data);
-
-        console.log(this.selectedTimeDay);
-        console.log(this.selectedScreeningStation);
-        console.log(this.selectedTimeSlot);
 
         if (this.currentDocId !== '') {
             this.data.selectedFacility = this.fire.firestore.collection('ScreeningStations').doc(this.selectedScreeningStation?.id);
