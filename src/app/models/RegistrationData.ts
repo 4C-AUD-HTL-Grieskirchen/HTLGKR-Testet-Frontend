@@ -38,7 +38,7 @@ export class RegistrationData {
     resultEmailSent: boolean;
     cancelEmailSent: boolean;
 
-    barCodeScanned: boolean;
+    codeScanned: boolean;
     result: string;
 
     constructor() {
@@ -52,7 +52,7 @@ export class RegistrationData {
         this.appointmentEmailSent = false;
         this.resultEmailSent = false;
         this.cancelEmailSent = false;
-        this.barCodeScanned = false;
+        this.codeScanned = false;
         this.result = 'unknown';
     }
 }
