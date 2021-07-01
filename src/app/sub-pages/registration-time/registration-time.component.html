@@ -1,12 +1,13 @@
 <h2>Buchen Sie Ihren Testtermin</h2>
 <app-screeningstation-item [screeningStation]="dataProvider.selectedScreeningStation"></app-screeningstation-item>
-
-<p-dropdown [options]="dataProvider.availableTimeDays" optionLabel="date" [(ngModel)]="dataProvider.selectedTimeDay" (onChange)="timeDayChanged()">
-</p-dropdown>
+<div class="mb-3">
+	<p-dropdown [options]="dataProvider.availableTimeDays" optionLabel="date" [(ngModel)]="dataProvider.selectedTimeDay" (onChange)="timeDayChanged()">
+	</p-dropdown>
+</div>
 
 <p-listbox *ngIf="dataProvider.selectedTimeDay" [(ngModel)]="dataProvider.selectedTimeSlot" [options]="dataProvider.availableTimeSlots" optionLabel="time"
            [listStyle]="{'max-height':'40vh'}"></p-listbox>
 
-<div class="form-row stepNavigation">
+<div class="form-row stepNavigation mt-5 mb-5">
     <p-button (onClick)="submit()" label="Buchung abschließen"></p-button>
 </div>
