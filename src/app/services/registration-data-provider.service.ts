@@ -46,7 +46,7 @@ export class RegistrationDataProviderService {
         console.log(this.selectedTimeSlot);
 
         if (this.currentDocId !== '') {
-            this.data.selectedFacility = this.fire.firestore.collection('Screeningstations').doc(this.selectedScreeningStation?.id);
+            this.data.selectedFacility = this.fire.firestore.collection('ScreeningStations').doc(this.selectedScreeningStation?.id);
             this.data.selectedTimeslot = this.selectedTimeSlot?.time;
             this.data.selectedTimeDay = this.selectedTimeDay?.date;
 
