@@ -19,9 +19,12 @@ export class RegistrationStartComponent implements OnInit {
     ngOnInit(): void {
         const params = this.route.snapshot.params;
 
+        this.dataProvider.setRegistrationId(params.id);
+
         this.dataProvider.getRegistration(params.id).then(value => {
             if (value === undefined) {
                 alert('Wrong id');
+                return;
             }
         });
     }
@@ -30,7 +33,7 @@ export class RegistrationStartComponent implements OnInit {
 
         const date = this.inputBirthday?.split('.').reverse().join('-');
 
-        if (this.inputBirthday && Date.parse(date ?? '') === Date.parse(this.dataProvider.data.birthdate ?? '')){
+        if (this.inputBirthday && date === this.dataProvider.data.birthdate ){
             this.router.navigate(['registration/station']);
         }
         else {

@@ -10,6 +10,8 @@ import {TimeSlot} from '../models/TimeSlot';
 })
 export class RegistrationDataProviderService {
 
+    private currentDocId = '';
+
     public selectedScreeningStation: Screeningstation | undefined;
 
     public selectedTimeDay: TimeDay | undefined;
@@ -31,18 +33,25 @@ export class RegistrationDataProviderService {
         this.loadScreeningStations();
     }
 
-    public submitRegistration(): void {
+    public setRegistrationId(id: string): void {
+        this.currentDocId = id;
+    }
 
+    public submitRegistration(): void {
+        console.log(this);
         console.log(this.data);
 
         console.log(this.selectedTimeDay);
         console.log(this.selectedScreeningStation);
         console.log(this.selectedTimeSlot);
 
-        if (this.selectedTimeSlot?.time){
+        if (this.currentDocId !== '') {
             this.data.selectedFacility = this.fire.firestore.collection('Screeningstations').doc(this.selectedScreeningStation?.id);
             this.data.selectedTimeslot = this.selectedTimeSlot?.time;
             this.data.selectedTimeDay = this.selectedTimeDay?.date;
+
+            this.fire.firestore.doc('Registrations/' + this.currentDocId).set(this.data);
+            return;
         }
 
         this.fire.firestore.collection('Registrations').add(Object.assign({}, this.data)).then((r) => {
@@ -56,6 +65,7 @@ export class RegistrationDataProviderService {
             this.fire.firestore.doc('Registrations/' + id).get().then(value => {
                 this.data = value.data() as RegistrationData;
                 resolve(this.data);
+                console.log(this.data);
             });
         });
     }
