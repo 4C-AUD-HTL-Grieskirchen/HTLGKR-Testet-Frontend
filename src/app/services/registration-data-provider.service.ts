@@ -47,8 +47,10 @@ export class RegistrationDataProviderService {
 
         if (this.currentDocId !== '') {
             this.data.selectedFacility = this.fire.firestore.collection('ScreeningStations').doc(this.selectedScreeningStation?.id);
-            this.data.selectedTimeslot = this.selectedTimeSlot?.time;
-            this.data.selectedTimeDay = this.selectedTimeDay?.date;
+            this.data.selectedTimeDay = this.data.selectedFacility.collection('timeDays').doc(this.selectedTimeDay?.id);
+            this.data.selectedTimeslot = this.data.selectedFacility.collection('timeDays').doc(this.selectedTimeDay?.id)
+                .collection('slots').doc(this.selectedTimeSlot?.id);
+
 
             this.fire.firestore.doc('Registrations/' + this.currentDocId).set(Object.assign({}, this.data));
             return;

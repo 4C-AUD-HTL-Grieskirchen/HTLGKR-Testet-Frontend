@@ -24,8 +24,8 @@ export class RegistrationData {
     pdfUri: string | undefined;
     pdfNumber: number | undefined;
 
-    selectedTimeDay: string | undefined;
-    selectedTimeslot: string | undefined;
+    selectedTimeDay: DocumentReference | undefined;
+    selectedTimeslot: DocumentReference | undefined;
     selectedFacility: DocumentReference | undefined;
 
     isCanceled: boolean;
