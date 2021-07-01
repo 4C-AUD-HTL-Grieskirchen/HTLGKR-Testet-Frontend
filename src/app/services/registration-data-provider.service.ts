@@ -10,7 +10,7 @@ import {TimeSlot} from '../models/TimeSlot';
 })
 export class RegistrationDataProviderService {
 
-    private currentDocId = '';
+    public currentDocId = '';
 
     public selectedScreeningStation: Screeningstation | undefined;
 
