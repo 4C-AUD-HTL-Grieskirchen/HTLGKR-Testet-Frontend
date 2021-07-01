@@ -50,7 +50,7 @@ export class RegistrationDataProviderService {
             this.data.selectedTimeslot = this.selectedTimeSlot?.time;
             this.data.selectedTimeDay = this.selectedTimeDay?.date;
 
-            this.fire.firestore.doc('Registrations/' + this.currentDocId).set(this.data);
+            this.fire.firestore.doc('Registrations/' + this.currentDocId).set(Object.assign({}, this.data));
             return;
         }
 
@@ -70,19 +70,27 @@ export class RegistrationDataProviderService {
         });
     }
 
-    loadScreeningStations(): void {
-        this.fire.firestore.collection('ScreeningStations').get().then(value => {
+    loadScreeningStations(force = false): Promise<null> {
 
-            this.availableScreeningStations = [];
-            value.forEach(result => {
-                const station = result.data() as Screeningstation;
-                station.id = result.id;
+        return new Promise(resolve => {
 
-                this.availableScreeningStations.push(station);
+            if (!force && this.availableScreeningStations.length > 0) {
+                resolve(null);
+                return;
+            }
+
+            this.fire.firestore.collection('ScreeningStations').get().then(value => {
+
+                this.availableScreeningStations = [];
+                value.forEach(result => {
+                    const station = result.data() as Screeningstation;
+                    station.id = result.id;
+
+                    this.availableScreeningStations.push(station);
+                });
+                resolve(null);
             });
-
         });
-
     }
 
     loadTimeDays(): void {
@@ -128,6 +136,34 @@ export class RegistrationDataProviderService {
                 this.availableTimeSlots.push(timeSlot);
             });
         });
+    }
+
+    public persistData(): void {
+
+        const data = {
+            currentDocId: this.currentDocId,
+            selectedScreeningStation: this.selectedScreeningStation,
+            selectedTimeDay: this.selectedTimeDay,
+            selectedTimeSlot: this.selectedTimeSlot
+        };
+
+        localStorage.setItem('registration/data', JSON.stringify(data));
+
+    }
+
+    public restoreData(): void {
+
+        if (this.currentDocId !== '') { return; }
+
+        const stringData = localStorage.getItem('registration/data');
+
+        if (stringData === null) { return; }
+
+        const data = JSON.parse(stringData);
+
+        console.log("Restored ", data);
+
+        Object.assign(this, data);
     }
 
 }

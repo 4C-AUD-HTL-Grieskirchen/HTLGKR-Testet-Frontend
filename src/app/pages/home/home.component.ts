@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RegistrationDataProviderService} from '../../services/registration-data-provider.service';
 import {Router} from '@angular/router';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 
 @Component({
     selector: 'app-home',
@@ -85,7 +85,8 @@ export class HomeComponent implements OnInit {
         this.registrationForm = new FormGroup({
             firstname: new FormControl(this.dataProvider.data.firstname, Validators.required),
             lastname: new FormControl(this.dataProvider.data.lastname, Validators.required),
-            birthdate: new FormControl(this.dataProvider.data.birthdate, Validators.required),
+            // @ts-ignore
+            birthdate: new FormControl(this.dataProvider.data.birthdate, Validators.required, forbiddenBirthdateValidator()),
             gender: new FormControl(this.dataProvider.data.gender, Validators.required),
             social: new FormControl(this.dataProvider.data.social),
             socialDate: new FormControl(undefined),
@@ -137,4 +138,20 @@ export class HomeComponent implements OnInit {
             this.socialDate.setValue(date.toString().split(',').join(''));
         }
     }
+}
+
+export function forbiddenBirthdateValidator(): AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> => {
+
+        const year = control.value.slice(6);
+        if (!year.includes('_')) {
+            let date = control.value.split('.').reverse().join('-');
+            date = Date.parse(date);
+
+            const forbidden = date > Date.now();
+            return new Promise(resolve => resolve(forbidden ? {forbiddenDate: {value: control.value}} : null));
+        }
+
+        return new Promise(resolve => resolve(null));
+    };
 }
